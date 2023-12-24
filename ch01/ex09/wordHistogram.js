@@ -30,7 +30,6 @@ export class WordHistogram {
       }
     });
 
-
     for (let entry of entries) {
       entry[1] = (entry[1] / this.totalWords) * 100;
     }
@@ -38,8 +37,7 @@ export class WordHistogram {
     entries = entries.filter((entry) => entry[1] >= 0.5);
 
     const lines = entries.map(
-      ([l, n]) =>
-        `${l}: ${"#".repeat(Math.round(10 * n))} ${n.toFixed(2)}%`,
+      ([l, n]) => `${l}: ${"#".repeat(Math.round(10 * n))} ${n.toFixed(2)}%`,
     );
 
     return lines.join("\n");
