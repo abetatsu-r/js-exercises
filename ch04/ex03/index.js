@@ -1,25 +1,24 @@
 export let sub = function (a, b) {
   try {
-    b = fullAdder(~b, 0b1);
-    return fullAdder(a, b);
-
+    return fullSubtractor(a, b);
     // 計算結果がoverFlowする場合
   } catch (e) {
     return "OverFlow !!";
   }
 };
 
-let fullAdder = function (a, b) {
+let fullSubtractor = function (a, b) {
+  b = ~b;
   let sum = a ^ b;
-  let carry = a & b;
+  // 2の補数計算をこの中でやるため最下部に桁上げ1を加える
+  let carry = ((a & b) << 1) | 0b1;
   while (carry) {
     let temp = sum;
-    sum = temp ^ (carry << 1);
-    carry = temp & (carry << 1);
+    sum = temp ^ carry;
+    carry = (temp & carry) << 1;
   }
 
   // オーバフロー検出
-  // a > 0 && b >> 0で sum < 0
   if (checkOverFlow(a, b, sum)) throw new Error("OverFlow !!");
 
   return sum;

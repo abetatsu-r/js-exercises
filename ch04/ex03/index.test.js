@@ -26,7 +26,7 @@ test.each([
   subTestCase(MAX_INT_32, -1, FLAG_OVERFLOW),
   subTestCase(MIN_INT_32, 1, FLAG_OVERFLOW),
   subTestCase(0, MIN_INT_32, FLAG_OVERFLOW),
-  // subTestCase(-5, MIN_INT_32, MAX_INT32 -4) ※2の補数計算でOVERFLOWするため計算できない
+  subTestCase(-5, MIN_INT_32, MAX_INT_32 - 4), //2の補数計算でOVERFLOWしない
 ])("sub(%p, %p) => %p", (a, b, expected) => {
   expect(sub(a, b)).toBe(expected);
 });
