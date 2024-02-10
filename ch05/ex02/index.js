@@ -34,7 +34,7 @@ export let replaceToEscapeSequence = function (string) {
 
 /**
  * switch文を使って、エスケープ文字をエスケープシーケンスに変換する
- * @param {*} string 
+ * @param {*} string
  * @returns 置換後の文字列
  */
 export let replaceToEscapeSequenceWithSwitch = function (string) {
