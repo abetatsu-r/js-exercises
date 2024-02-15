@@ -31,8 +31,8 @@ export let add = function (c1, c2) {
   if (isComplex(c2) && typeof c1 === "number") {
     c2 = convertComplex(c2);
 
-    // c2がNaN,infinityの場合はそのまま返す
-    if (!isFinite(c2)) return c2;
+    // cがNaN,infinityの場合はそのまま返す
+    if (!isFinite(c1)) return c1;
 
     let reSum = c1 + c2.re;
     let imSum = c2.im;
@@ -44,13 +44,13 @@ export let add = function (c1, c2) {
 };
 
 // 乗算
-let mul = function (c1, c2) {
+export let mul = function (c1, c2) {
   if (isComplex(c1) && isComplex(c2)) {
     c1 = convertComplex(c1);
     c2 = convertComplex(c2);
 
-    reMul = c1.re * c2.re + c1.im * c2.im;
-    imMul = c1.re * c2.im + c1.im * c2.re;
+    let reMul = c1.re * c2.re - c1.im * c2.im;
+    let imMul = c1.re * c2.im + c1.im * c2.re;
 
     return fixRes(reMul, imMul);
   }
@@ -77,12 +77,12 @@ let mul = function (c1, c2) {
 };
 
 // 減算
-let sub = function (c1, c2) {
+export let sub = function (c1, c2) {
   return add(c1, mul(c2, -1));
 };
 
 // 除算
-let div = function (c1, c2) {
+export let div = function (c1, c2) {
   if (isComplex(c1) && isComplex(c2)) {
     c1 = convertComplex(c1);
     c2 = convertComplex(c2);
@@ -93,7 +93,7 @@ let div = function (c1, c2) {
     // 分母は絶対値の二乗
     let demonical = c2.re ** 2 + c2.im ** 2;
 
-    return mul(c1, div(c2, demonical));
+    return div(mul(c1, c2), demonical);
   }
 
   if (isComplex(c1) && typeof c2 === "number") {
@@ -127,7 +127,7 @@ let div = function (c1, c2) {
  * 以下の基準で複素数かを判別する
  * 1. vがre(実部)とim(虚部)のプロパティをもち、その値がNumber(NaN以外)である場合
  * 2. vがim(虚部)のプロパティをもち、その値がNumber(NaN以外)である場合
- * 3. vがabs(絶対値)とarg(偏角)のプロパティを持ち、その値がNumberである場合
+ * 3. vがabs(絶対値)とarg(偏角)のプロパティを持ち、その値がNumberである場合(テスト未実装)
  * 1と2をともに満たす場合は、1を優先する。また片方のみしかプロパティがない場合(純虚数)はめんどくさいので無視する
  * @param {*} v
  * @return {boolean} 複素数であるかどうかを返す
