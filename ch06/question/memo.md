@@ -8,3 +8,4 @@
   - そう(ref: p151)
 - p151, 継承プロパティをオーバーライドした状態で、prototypeのプロパティをdeleteした場合は、独自プロパティは残るか？
   - 残る
+- p155, hasEnumerableはSymbolにも効くか？(Object.keyは効かない)
