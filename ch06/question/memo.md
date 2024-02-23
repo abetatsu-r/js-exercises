@@ -9,3 +9,9 @@
 - p151, 継承プロパティをオーバーライドした状態で、prototypeのプロパティをdeleteした場合は、独自プロパティは残るか？
   - 残る
 - p155, hasEnumerableはSymbolにも効くか？(Object.keyは効かない)
+- p156, Object.assign(a, b) vs let a = Object.create(b);
+- p159, メロスにはArray.toString()とtoLocalString()の違いがわからぬ
+  - 後者は例えば数値がカンマ区切りになったりする
+- p160, シリアライズ可能ならば、toJsonメソッドを持っているは、必要十分か？
+  - 違うっぽい
+  - ダメな奴はどうやって見ている？
