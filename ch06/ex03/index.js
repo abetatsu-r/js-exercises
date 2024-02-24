@@ -13,31 +13,30 @@ console.log(o.isPrototypeOf(q)); // true
 // pはqのプロトタイプ
 console.log(p.isPrototypeOf(q)); // true
 
-let getProtoTypeChain = function() {
+let getProtoTypeChain = function () {
   let objs = {
     // よくない気がする
-    obj : Object,
+    obj: Object,
     array: Array,
     date: Date,
-    map: Map
-  }
+    map: Map,
+  };
 
   let key_pattern = combination(Object.keys(objs), 2);
 
-  let chain_arr = key_pattern.map(pair => {
+  let chain_arr = key_pattern.map((pair) => {
     let [one, other] = pair;
     if (objs[one].prototype?.isPrototypeOf(objs[other])) {
-        return (one + ' is prototype of ' + other);
-    } else if (objs[one].prototype?.isPrototypeOf(objs[other])){
-        return (other + ' is prototype of ' + one);
+      return one + " is prototype of " + other;
+    } else if (objs[one].prototype?.isPrototypeOf(objs[other])) {
+      return other + " is prototype of " + one;
     } else {
-        return one + ' and ' + other + ' are not in an inherited relationship';
+      return one + " and " + other + " are not in an inherited relationship";
     }
-  })
+  });
 
-  return chain_arr.join('.\n') + '.';
-}
-
+  return chain_arr.join(".\n") + ".";
+};
 
 // 配列に対する組み合わせ列挙(nums_C_k)
 let combination = (nums, k) => {
