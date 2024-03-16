@@ -1,0 +1,17 @@
+- p142, 「オブジェクトは参照を渡すため、コピーを渡すわけではない」と破壊的操作の問題について
+  - Object.create()を使って渡すのがいい？
+- p144, 「prototypeプロパティを持つすべてのObject」, Array, Object, Date以外に何があるか？
+  - Object.prototypeがプロトタイプチェーンの頂点という認識
+- p145, 「例のコード」がStringを継承するのは、`{x:1, y:2}`というObjectが既にObject.prototypeの継承Objectとなっているからであっているか？
+- p148, for-inループが特別強力な理由はあるか？(for of Object.entriesではダメなのか？)
+- p149, 読み出しのみ可のプロパティを継承している場合に、同名のプロパティを設定することはできないってコト？
+  - そう(ref: p151)
+- p151, 継承プロパティをオーバーライドした状態で、prototypeのプロパティをdeleteした場合は、独自プロパティは残るか？
+  - 残る
+- p155, hasEnumerableはSymbolにも効くか？(Object.keyは効かない)
+- p156, Object.assign(a, b) vs let a = Object.create(b);
+- p159, メロスにはArray.toString()とtoLocalString()の違いがわからぬ
+  - 後者は例えば数値がカンマ区切りになったりする
+- p160, シリアライズ可能ならば、toJsonメソッドを持っているは、必要十分か？
+  - 違うっぽい
+  - ダメな奴はどうやって見ている？
