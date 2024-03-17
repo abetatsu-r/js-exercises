@@ -9,14 +9,19 @@ function fizzbuzz(n) {
 }
 
 function sumOfSqareDifference(f, g) {
-    return f.map(function (v, i) {
-      return (v - g[i]) ** 2 
-    }).reduce((acc, v) => (acc + v), 0);
+  return f
+    .map(function (v, i) {
+      return (v - g[i]) ** 2;
+    })
+    .reduce((acc, v) => acc + v, 0);
 }
 
 function sumOfEvensIsLargerThan42(array) {
-    return array.filter((v) => (v%2 === 0 && v !== 0)).concat(false)
-    .reduce((acc, v) =>
-        typeof acc === 'boolean' || acc >= 42 || (v && acc + v)
-    , 0)
+  return array
+    .filter((v) => v % 2 === 0 && v !== 0)
+    .concat(false)
+    .reduce(
+      (acc, v) => typeof acc === "boolean" || acc >= 42 || (v && acc + v),
+      0,
+    );
 }
