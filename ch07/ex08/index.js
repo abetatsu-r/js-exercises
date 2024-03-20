@@ -3,5 +3,6 @@ export let reverse = function (str) {
   let reg = /.(\u{200d}.)*/gu;
 
   let arr = str.match(reg);
+  console.log(arr);
   return arr.reverse().join("");
 };
