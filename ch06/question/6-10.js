@@ -1,20 +1,25 @@
-let p = {
-  x: 1.0,
-  y: 1.0,
-  get r() {
-    return Math.hypot(this.x, this.y);
-  },
-  set r(value) {
-    let old = Math.hypot(this.x, this.y);
-    let ratio = value / old;
-    this.x *= ratio;
-    this.y *= ratio;
-  },
+const testParentObj = {
+  abc: 123,
+  aaa: 456,
 };
 
-console.log(p.r);
-console.log(p.x);
-p.r = 2;
-console.log(p.r);
-// set rでxの値も更新される
-console.log(p.x);
+const testChildObject = Object.create(testParentObj);
+testChildObject.a = 1;
+testChildObject.b = 1;
+const symbolProp1 = Symbol("symbolProp");
+const symbolProp2 = Symbol("symbolProp");
+
+testChildObject[symbolProp1] = "symbolPropValue";
+testChildObject[symbolProp2] = "symbolPropValue";
+console.log(testChildObject);
+
+
+expect(getAllPropertyNames(testChildObject)).toEqual([
+  "a",
+  "b",
+  "0", //symbolPropになぜかならない
+  "1", //symbolPropになぜかならない
+  "length",
+  "abc",
+  "aaa",
+]);

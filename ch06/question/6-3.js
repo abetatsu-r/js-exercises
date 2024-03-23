@@ -10,3 +10,7 @@ console.log(x.x); // 2
 x.x = 3;
 console.log(x.x); // 3
 console.log(o.x); // 2
+
+let a = 5;
+let obj = {b: a};
+console.log(Object.getOwnPropertyDescriptors(obj));

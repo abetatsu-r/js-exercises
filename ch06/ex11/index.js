@@ -6,8 +6,9 @@ export let p = {
   },
   set x(newValue) {
     if (isNaN(newValue)) throw new Error("cannot set value by NaN");
-    this.r = Math.hypot(newValue, this.y);
-    this.theta = Math.atan(this.y / newValue);
+    let currentY = this.y;
+    this.r = Math.hypot(newValue, currentY);
+    this.theta = Math.atan(currentY / newValue);
   },
 
   get y() {

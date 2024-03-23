@@ -1,8 +1,8 @@
 function fizzbuzz(n) {
   [...Array(n)]
-    .map((_, i) => ((i + 1) % 15 ? i + 1 : "FizzBuzz"))
-    .map((n, i) => ((i + 1) % 5 ? n : "Fizz"))
+    .map((_, i) => ((i + 1) % 5 ? i + 1 : "Fizz"))
     .map((n, i) => ((i + 1) % 3 ? n : "Buzz"))
+    .map((n, i) => ((i + 1) % 15 ? n : "FizzBuzz"))
     .forEach(function (v) {
       console.log(v);
     });
