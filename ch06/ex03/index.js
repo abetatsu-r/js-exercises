@@ -38,6 +38,7 @@ let getProtoTypeChain = function () {
   return chain_arr.join(".\n") + ".";
 };
 
+// 多分ここでたまたま呼ばれてるので、Object()がコンストラクタのままだとちゃうかも
 // 配列に対する組み合わせ列挙(nums_C_k)
 let combination = (nums, k) => {
   let ans = [];
