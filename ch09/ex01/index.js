@@ -7,48 +7,53 @@
  * - new C().C.method()はCのインスタンスのフィールドCの持つメソッド
  * - new new C().C()はcのインスタンスのC()をコンストラクタとして呼び出したインスタンスのメソッド
  */
-class C {
-    constructor() {
-        // 6との両立が無理
-        /** 
+export class C {
+  constructor() {
+    // 6との両立が無理
+    /** 
         this.C = {
             method () {
                 return 5;
             }
         }
         */
-       this.C = function() {
-       this.method = function() {return 6};
-     }
-    }
+    this.C = function () {
+      this.method = function () {
+        return 6;
+      };
+    };
+  }
 
-    // 4との両立が無理
-    /** 
+  // 4との両立が無理
+  /** 
     static C = {
         method() {return 3}
     }
     */
 
-    static C = function() {
-        //if(new.target) return {method() {return 3}};
-       this.method = function() {return 4};
-    }
-   
-    static method() {
-        return 1;
-    }
+  static C = function () {
+    //if(new.target) return {method() {return 3}};
+    this.method = function () {
+      return 4;
+    };
+  };
 
-    method() {
-        return 2;
-    }
+  static method() {
+    return 1;
+  }
 
+  method() {
+    return 2;
+  }
 }
 
-C.C.method = function() {return 3};
+C.C.method = function () {
+  return 3;
+};
 
 console.log(C.method());
 console.log(new C().method());
 //console.log(C.C.method());
-console.log(new C.C().method())
+console.log(new C.C().method());
 //console.log(new C().C.method());
-console.log(new new C().C().method())
+console.log(new new C().C().method());
