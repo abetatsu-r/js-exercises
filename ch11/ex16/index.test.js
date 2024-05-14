@@ -19,6 +19,7 @@ function nabeatsu() {
 describe("retryWithExponentialBackoff", () => {
   /**
    * Consider running Jest with `--detectOpenHandles` to troubleshoot this issue?
+   * ⇒ doneしてなかったから
    */
   test("maxRetry超過", (done) => {
     retryWithExponentialBackoff(
