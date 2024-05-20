@@ -8,6 +8,7 @@ export function toJapaneseDateString(date) {
   const options2 = { day: "numeric" };
 
   // なぜかdayまで入れると元号/yy/mm/ddになるので分けてくっつける
+  // monthをlongにすると何故か通る
   return (
     new Intl.DateTimeFormat("ja-JP-u-ca-japanese", options).format(date) +
     new Intl.DateTimeFormat("ja-JP-u-ca-japanese", options2).format(date)

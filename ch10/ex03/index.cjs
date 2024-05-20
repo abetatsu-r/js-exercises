@@ -1,2 +1,2 @@
-const c = require('./c.cjs');
+const c = require("./c.cjs");
 console.log(c.f()); // OK
