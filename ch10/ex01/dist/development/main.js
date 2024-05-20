@@ -6,27 +6,30 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./ch10/ex01/stats.cjs":
-/*!*****************************!*\
+/******/ (() => {
+  // webpackBootstrap
+  /******/ var __webpack_modules__ = {
+    /***/ "./ch10/ex01/stats.cjs":
+      /*!*****************************!*\
   !*** ./ch10/ex01/stats.cjs ***!
   \*****************************/
-/***/ ((__unused_webpack_module, exports) => {
+      /***/ (__unused_webpack_module, exports) => {
+        eval(
+          "const sum = (x, y) => x + y;\r\nconst square = x => x * x;\r\n\r\nexports.mean = data => data.reduce(sum)/data.length;\r\nexports.stddev = function(d) {\r\n    let m = exports.mean(d);\r\n    return Math.sqrt(d.map(x => x - m).map(square).reduce(sum)/(d.length-1));\r\n};\n\n//# sourceURL=webpack://preset-js/./ch10/ex01/stats.cjs?",
+        );
 
-eval("const sum = (x, y) => x + y;\r\nconst square = x => x * x;\r\n\r\nexports.mean = data => data.reduce(sum)/data.length;\r\nexports.stddev = function(d) {\r\n    let m = exports.mean(d);\r\n    return Math.sqrt(d.map(x => x - m).map(square).reduce(sum)/(d.length-1));\r\n};\n\n//# sourceURL=webpack://preset-js/./ch10/ex01/stats.cjs?");
+        /***/
+      },
 
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./ch10/ex01/stats.cjs"](0, __webpack_exports__);
-/******/ 	
-/******/ })()
-;
+    /******/
+  };
+  /************************************************************************/
+  /******/
+  /******/ // startup
+  /******/ // Load entry module and return exports
+  /******/ // This entry module is referenced by other modules so it can't be inlined
+  /******/ var __webpack_exports__ = {};
+  /******/ __webpack_modules__["./ch10/ex01/stats.cjs"](0, __webpack_exports__);
+  /******/
+  /******/
+})();

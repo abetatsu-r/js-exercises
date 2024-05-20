@@ -1,4 +1,7 @@
-import defaultImport2, {renamedImport2 as renamedFunction, reExported } from "./functions.js";
+import defaultImport2, {
+  renamedImport2 as renamedFunction,
+  reExported,
+} from "./functions.js";
 
 defaultImport2();
 renamedFunction();
