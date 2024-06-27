@@ -43,6 +43,13 @@ function h3() {
   }).catch((e) => log(e.message));
 }
 
+function h3alter() {
+  Promise.resolve().then(async () => {
+    errX();
+  }).catch(e => log(e.message));
+}
+
+h3alter();
 async function h4() {
   // NOTE: 2つの例外は両方 catch できるか？
   try {

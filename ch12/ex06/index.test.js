@@ -1,5 +1,6 @@
 import { walk } from "./index.js";
 
+// filrPathを渡すかどうかも確認する ⇒ ENOTDIRのエラーになる
 test("success walk", () => {
   const fileSequence = walk("ch12/ex06/root");
 

@@ -13,6 +13,7 @@ export function* readLines(filePath) {
     let size = 0;
     while ((size = fs.readSync(fd, buff, 0, READ_SIZE, pos)) !== 0) {
       // stringに直す
+      // buffer.concat()を使ってbufferのまま前のループの結果を保持すると、ASCII以外のものでも処理できる。
       str = lines.toString() + buff.toString("utf-8", 0, size);
       lines = str.split("\n");
       while (lines.length > 1) {

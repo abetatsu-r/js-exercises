@@ -14,9 +14,9 @@ import {
 
 function f12() {
   // new Promise 内だがコールバック関数で throw した場合は？
-  new Promise((resolve, reject) => {
-    setTimeout(() => errX(), 0);
-  }).catch((e) => log(e.message));
+  new Promise((resolve, reject) => 
+    setTimeout(() => errX(), 0)
+  ).catch((e) => log(e.message));
 }
 
 f12();
