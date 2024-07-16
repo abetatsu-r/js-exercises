@@ -1,0 +1,4 @@
+{
+  "name": "Taro",
+  "age": "<button onclick=\"window.alert('hacked')\"/>表示</button>"
+}
