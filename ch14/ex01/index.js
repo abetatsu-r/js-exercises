@@ -3,6 +3,11 @@
  * - unwritabele, unconfigurableについてはdefinePropertyを使う
  * - nestedについては、拡張不能にする必要があるのでdefineProperty + preventExtensionを使う
  */
+
+/**
+ * ans: 
+ * - Object.seal()を使うとよい
+ */
 export function unwritableAndUnconfigurableObj() {
   return Object.defineProperty({}, "a", {
     value: 1,

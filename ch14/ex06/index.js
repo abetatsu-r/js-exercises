@@ -26,6 +26,7 @@ function loggingProxy(o, logger) {
       return value;
     },
 
+    // この部分はgetのproxy呼び出しの中にねじ込める
     apply(target, receiver, args) {
       recordLog(logger, target.name, args);
       return Reflect.apply(target, receiver, args);
