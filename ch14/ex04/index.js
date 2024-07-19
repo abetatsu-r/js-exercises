@@ -9,6 +9,7 @@ export class Kana {
   constructor(kana) {
     if (typeof kana === "string") {
       const code = kana.charCodeAt();
+      // 正規表現のmatchで書いた方がいいかな
       if (!(12353 <= code && code <= 12435)) {
         throw RangeError("ひらがなではありません");
       }

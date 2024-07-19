@@ -34,6 +34,9 @@ test("success log in case pf calling some methods", () => {
 
   expect(logger.length).toBe(2);
 
+
+  // StrictEqualsを使うと構造の確認もできるぞい
+  // ()
   expect(logger[0].date).not.toBe(undefined);
   expect(logger[0].method).toBe("method1");
   expect(logger[0].args).toEqual([]);
