@@ -1,0 +1,4 @@
+p513: constructor()とconnectedCallback()、constructor()がない場合ってどう呼ばれるんだっけ
+p515: 何が期待されていない？
+
+p557: replaceで履歴が置き換わることの便利さがわからないのですが具体的な利用例などはありますか？

@@ -1,0 +1,122 @@
+/* 全体の背景設定 */
+/* 背景を緑のグラデーションにし、全体のフォントをArialに統一する*/
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #006400, #00ff00); /* レックウザの緑を基にしたグラデーション */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* コンテナのスタイル */
+.container {
+    background: #003300; /* 濃い緑色 */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 350px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* フォームのスタイル */
+/* form要素を縦に並べる */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 入力フィールドのスタイル */
+/* テキストフォームの色・フォントサイズを設定し、文字の余白を決定する*/
+input[type="text"] {
+    border: 2px solid #ffcc00; /* 明るい黄色 */
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    width: calc(100% - 24px);
+    box-sizing: border-box;
+    background: #e6ffe6; /* 明るい緑背景 */
+    color: #003300; /* 濃い緑 */
+}
+
+/* ボタンのスタイル */
+/* 重ねた時に指差しマークが出るようにし、色を黄色にし丸みをつける*/
+button {
+    background-color: #ffcc00; /* 明るい黄色 */
+    color: #003300; /* 濃い緑 */
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* buttonをホバーした時に、色を変えるようにする*/
+button:hover {
+    background-color: #ff9900; /* ホバー時のオレンジ色 */
+    color: #ffffff; /* ホバー時の文字色変更 */
+}
+
+/* リスト全体のスタイル */
+/* 箇条書きの・をつけないようにする*/
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* リストアイテムのスタイル */
+/* 濃い緑の背景色と赤い丸みを帯びた境界線、要素を中央ぞろえで配置し、落ち影を入れる*/
+li {
+    background: #003300; /* 濃い緑色 */
+    border: 2px solid #ff0000; /* 赤いボーダー */
+    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* チェックボックスのスタイル */
+/* リストの要素と12px離し、check時に赤いマークが表示されるようにする */
+li input[type="checkbox"] {
+    margin-right: 12px;
+    accent-color: #ff0000; /* 赤いチェックボックス */
+}
+
+/* ラベルのスタイル */
+/* 登録したtodoタスクの文字を16pxの白色にする*/
+li label {
+    flex-grow: 1;
+    font-size: 16px;
+    color: #ffffff; /* 白い文字色 */
+}
+
+/* 削除ボタンのスタイル */
+/* 削除ボタンを赤地白文字にして丸めて、背景色の不透明度を下げる*/
+li button {
+    background-color: #ff0000; /* 赤 */
+    color: #ffffff;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* ホバー時に赤の色味を変える*/
+li button:hover {
+    background-color: #cc0000; /* ホバー時の赤色 */
+}
