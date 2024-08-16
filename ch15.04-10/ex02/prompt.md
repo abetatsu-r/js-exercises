@@ -3,7 +3,7 @@ Tailwind CSS を使う前提で HTML と JavaScript のコードを書き換え�
 注意: HTML と JavaScript は1つのファイルにせず分けて出力して下さい。
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <title>Simple ToDo</title>

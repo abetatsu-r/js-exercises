@@ -7,7 +7,7 @@
     <title>Simple ToDo</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <script type = "module" src="/ch15.04-10/ex01/index.js"></script>
+    <script type="module" src="/ch15.04-10/ex01/index.js"></script>
   </head>
   <body>
     <form id="new-todo-form">

@@ -22,7 +22,7 @@ const sound = new Audio("/ch15.04-10/ex10/decision1.mp3");
 let grid = new Array(ROWS)
   .fill(null)
   .map(() =>
-    new Array(COLS).fill(null).map(() => !!Math.floor(Math.random() * 2))
+    new Array(COLS).fill(null).map(() => !!Math.floor(Math.random() * 2)),
   );
 
 // grid を canvas に描画する
@@ -48,20 +48,20 @@ function updateGrid(grid) {
     for (let col = 0; col < COLS; col++) {
       // 周囲のセルの生存数を数える
       const n_alive = [
-        grid[row - 1]?.[col-1],
+        grid[row - 1]?.[col - 1],
         grid[row - 1]?.[col],
-        grid[row - 1]?.[col+1],
-        grid[row]?.[col-1],
-        grid[row]?.[col+1],
-        grid[row + 1]?.[col-1],
+        grid[row - 1]?.[col + 1],
+        grid[row]?.[col - 1],
+        grid[row]?.[col + 1],
+        grid[row + 1]?.[col - 1],
         grid[row + 1]?.[col],
-        grid[row + 1]?.[col+1],
-      ].filter(x => x).length;
+        grid[row + 1]?.[col + 1],
+      ].filter((x) => x).length;
 
       // 生きたセルの場合
       if (grid[row][col]) {
         // 周囲に生きたセルが2個または3個の場合のみ生存する
-        if(n_alive === 2 || n_alive === 3) {
+        if (n_alive === 2 || n_alive === 3) {
           nextGrid[row][col] = true;
         } else {
           nextGrid[row][col] = false;
@@ -69,7 +69,7 @@ function updateGrid(grid) {
       } else {
         // 死んだセルの場合
         // 周囲に生きたセルが3つある場合は生きたセルへと変わる
-        if(n_alive === 3) {
+        if (n_alive === 3) {
           nextGrid[row][col] = true;
         } else {
           nextGrid[row][col] = false;

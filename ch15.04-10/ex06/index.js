@@ -55,8 +55,7 @@ class TodoApp extends HTMLElement {
 
       elem.append(toggle, label, destroy);
       list.prepend(elem);
-    }
-    
+    };
   }
 }
 

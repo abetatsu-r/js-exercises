@@ -50,28 +50,28 @@ window.addEventListener("hashchange", () => {
   console.log(todoList);
 
   switch (hash) {
-    case "#/active" : 
+    case "#/active":
       todoList.forEach((node) => {
-        if(node.classList.contains("completed")) {
+        if (node.classList.contains("completed")) {
           node.style.display = "none";
         } else {
           node.style.display = "";
-        } 
-      })
+        }
+      });
       break;
-    case "#/completed" :
+    case "#/completed":
       todoList.forEach((node) => {
-        if(node.classList.contains("completed")) {
+        if (node.classList.contains("completed")) {
           node.style.display = "";
         } else {
           node.style.display = "none";
-        } 
-      })
+        }
+      });
       break;
-    case "#/" :
+    case "#/":
       todoList.forEach((node) => {
         node.style.display = "";
-      })
+      });
       break;
   }
 });
