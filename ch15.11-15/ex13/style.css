@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.chat-container {
+  width: 400px;
+  max-width: 100%;
+  margin: 50px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.messages {
+  height: 300px;
+  padding: 20px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 70%;
+  word-wrap: break-word; /* テキストの折り返しを有効にする */
+  white-space: normal; /* 折り返し設定を適用 */
+}
+
+.sent {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.received {
+  background-color: #f1f0f0;
+  align-self: flex-start;
+}
+
+.input-container {
+  display: flex;
+  padding: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ccc; /* 明るい灰色にする */
+  color: #666; /* 文字色を暗くする */
+  cursor: not-allowed; /* カーソルを禁止マークに変更 */
+}
