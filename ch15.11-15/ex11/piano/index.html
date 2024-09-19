@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>piano</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="module" src="/ch15.11-15/ex11/piano/index.js"></script>
+    <style>
+      canvas {
+        border: 1px solid black;
+        display: block;
+        margin-bottom: 10px;
+      }
+      button {
+        margin-right: 5px;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+      }
+      #numberRange {
+        margin-right: 10px; /* スクロールバーと数字の間にスペースを追加 */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="screen"></canvas>
+
+    <div class="container">
+      <button id="countup">+</button>
+      <button id="countdown">-</button>
+      <input type="range" min="0" max="6" value="0" id="numberRange" />
+      <span id="selectedNumber">0</span>
+    </div>
+  </body>
+</html>
