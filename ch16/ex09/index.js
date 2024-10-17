@@ -25,8 +25,6 @@ app.all("/test/mirror", (req, res) => {
 
   message += "\r\n";
 
-  console.log(req.body);
-
   // bodyがあれば追加
   if (req.body) {
     message += JSON.stringify(req.body);
