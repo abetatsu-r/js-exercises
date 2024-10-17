@@ -2,8 +2,7 @@
 import https from "https";
 import { Octokit, App } from "octokit";
 
-const octokit = new Octokit({
-});
+const octokit = new Octokit({});
 
 octokit.issues
   .create({

@@ -39,7 +39,7 @@ app.all("*", (req, res) => {
   let filename = req.path.substring(1);
 
   filename = filename.replace(/\.\.\//g, "");
-  filename = path.resolve(__dirname, filename); // 多分怒られる
+  filename = path.resolve(__dirname, filename);
 
   let type;
   switch (path.extname(filename)) {
@@ -87,3 +87,5 @@ app.all("*", (req, res) => {
 app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
+
+export default app;

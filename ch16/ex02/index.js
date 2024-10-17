@@ -31,33 +31,31 @@ async function startChild() {
   });
 }
 
-// シグナルのトラップ
-const signals = ["SIGTERM", "SIGINT"]; // トラップするシグナルのリスト
+// signal(SIGINT)を送信して5秒後に子プロセスを終了する
+/**
+setTimeout(() => {
+  child.kill("SIGINT");
+}, 5000);
+*/
 
-signals.forEach((signal) => {
-  process.on(signal, () => {
-    console.log(`Received ${signal}. Notifying child and exiting...`);
-    if (child) {
-      console.log("お前呼ばれてる？");
-      process.kill(child.pid, signal); // 子プロセスにシグナルを送信
-    }
-    console.log("じゃあお前は？");
-    process.exit(0); // 自分自身も終了
-  });
-});
+// signal(SIGTERM)を送信して10秒後に子プロセスを終了する
+setTimeout(() => {
+  child.kill("SIGTERM");
+}, 10000);
 
 // 子プロセスを起動して、異常終了時に再起動する
 async function main() {
   while (true) {
-    const [code, signal] = await startChild();
-    console.log(`Child process exited with code: ${code}, signal: ${signal}`);
+    let [code, signal] = await startChild();
 
     // 子プロセスが異常終了した場合は再起動
-    if (code !== 0) {
+    if (code) {
       console.log("Child process crashed. Restarting...");
     } else {
-      console.log("Child process exited normally. Exiting main process.");
-      break; // 正常終了した場合はループを抜ける
+      console.log(
+        `Received ${signal}. Child process exited normally. Exiting main process.`,
+      );
+      process.exit(code); // 正常終了した場合はプロセスを終わらせる
     }
   }
 }
