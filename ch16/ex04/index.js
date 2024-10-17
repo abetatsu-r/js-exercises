@@ -3,7 +3,7 @@ import iconv from "iconv-lite";
 
 const stream = fs.createReadStream("hello.txt");
 
-// これもしかしてサイズが大きいとダメなのかもしれない
+// これもしかしてサイズが大きいとダメ？
 // その場合p648に倣ってstream.Tramnsformを使うんだろう
 stream.on("readable", () => {
   const data = stream.read();
