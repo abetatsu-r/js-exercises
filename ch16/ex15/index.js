@@ -1,11 +1,5 @@
 import threads from "worker_threads";
 
-// __fileNameをES Modulesで取得
-let __file = import.meta.url;
-// ./から始まる相対パスにする
-
-console.log(__file);
-
 if (threads.isMainThread) {
   console.log("This is the main thread");
 
