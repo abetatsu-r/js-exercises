@@ -1,6 +1,5 @@
 import { spawn } from "child_process";
 import path from "path";
-import { start } from "repl";
 
 // ESMでこのファイルの絶対パスとして__dirnameを定義するイディオム
 import { fileURLToPath } from "url";

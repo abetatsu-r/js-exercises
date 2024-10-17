@@ -4,7 +4,6 @@ import fs from "fs";
 let server = net.createServer();
 server.listen(3000, () => console.log("Listening on port 3000"));
 
-// "/"でGETリクエストを受けた時、./form.htmlを返す
 server.on("connection", (socket) => {
   socket.on("data", (data) => {
     returnHtml(data, socket);
@@ -16,6 +15,7 @@ function returnHtml(data, socket) {
   const lines = request.split("\r\n");
   const [method, path] = lines[0].split(" ");
 
+  // "/"でGETリクエストを受けた時、./form.htmlを返す
   if (method === "GET" && path === "/") {
     // form.htmlを読み込む
     fs.readFile("./form.html", (err, data) => {
