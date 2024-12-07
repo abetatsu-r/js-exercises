@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Sleep Tool</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pokemon Sleep Tool</h1>
+      <form id="pokemon-form">
+        <!-- Pokemon Selection -->
+        <div class="form-group">
+          <label for="pokemon-select">Select Pokemon:</label>
+          <select id="pokemon-select" name="pokemon">
+            <option value="" disabled selected>ポケモン</option>
+          </select>
+          <span id="pokemon-type-display"></span>
+        </div>
+
+        <!-- Level Input -->
+        <div class="form-group">
+          <label for="level-input">Level (1-60):</label>
+          <input type="number" id="level-input" name="level" min="1" max="60" />
+        </div>
+
+        <!-- Ingredients Selection -->
+        <div class="form-group" id="ingredient">
+          <label>Ingredients:</label>
+          <div>
+            <label for="ingredient-1">第一食材:</label>
+            <div id="ingredient-1" name="ingredient-1"></div>
+          </div>
+          <div>
+            <label for="ingredient-2">第二食材:</label>
+            <div id="ingredient-2" name="ingredient-2"></div>
+          </div>
+          <div>
+            <label for="ingredient-60">第三食材:</label>
+            <div id="ingredient-3" name="ingredient-3"></div>
+          </div>
+        </div>
+
+        <!-- Sub Skills -->
+        <div class="form-group">
+          <label>Sub Skills:</label>
+          <div id="sub-skills-container">
+            <div class="sub-skill">
+              <select name="sub-skill-1" class="sub-skill-select">
+                <option value="" disabled selected>Select a sub-skill</option>
+                <option value="attack">Attack Boost</option>
+                <option value="defense">Defense Boost</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" id="add-sub-skill-btn">Add Sub Skill</button>
+        </div>
+
+        <!-- Nature Selection -->
+        <div class="form-group">
+          <label for="nature-select">Nature:</label>
+          <select id="nature-select" name="nature">
+            <option value="" disabled selected>-</option>
+          </select>
+          <span id="nature-effected-param-display"></span>
+        </div>
+
+        <!-- Calculate Button -->
+        <div class="form-group">
+          <button type="submit" id="calculate-btn">Calculate</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      // Adding sub-skill logic
+      const maxSubSkills = 3;
+      document
+        .getElementById("add-sub-skill-btn")
+        .addEventListener("click", () => {
+          const container = document.getElementById("sub-skills-container");
+          const currentSkills = container.querySelectorAll(".sub-skill").length;
+
+          if (currentSkills < maxSubSkills) {
+            const newSubSkill = document.createElement("div");
+            newSubSkill.classList.add("sub-skill");
+            newSubSkill.innerHTML = `
+          <select name="sub-skill-${
+            currentSkills + 1
+          }" class="sub-skill-select">
+            <option value="" disabled selected>Select a sub-skill</option>
+            <option value="attack">Attack Boost</option>
+            <option value="defense">Defense Boost</option>
+          </select>
+        `;
+            container.appendChild(newSubSkill);
+          }
+        });
+    </script>
+
+    <script type="module" src="src/scripts/main.js"></script>
+  </body>
+</html>
