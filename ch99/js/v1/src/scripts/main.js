@@ -9,6 +9,7 @@ import { MyPokemon } from "../model/MyPokemon.js";
 import { reflectSubskillSelect } from "./pokemonForm/reflectSubskill.js";
 import { SubSkillInfo } from "../enums/SubSkillInfo.js";
 import { displayEvolutionStage } from "./pokemonForm/displayEvolutionStage.js";
+import { calc } from "../utils/calculator/calc.js";
 
 const form = document.getElementById("pokemon-form");
 const pokemonSelect = document.getElementById("pokemon-select");
@@ -94,9 +95,19 @@ form.addEventListener("keydown", function (event) {
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   const targetPokemon = createMyPokemon();
-  console.log(targetPokemon);
   console.log(targetPokemon.getHelpTime());
   console.log(targetPokemon.getCarryLimit());
+  console.log(targetPokemon.getBerriesCount());
+  console.log(targetPokemon.getBerryEnergy());
+  console.log(targetPokemon.getIngredientCount1());
+  console.log(targetPokemon.getIngredientCount2());
+  console.log(targetPokemon.getIngredientCount3());
+  console.log(targetPokemon.getIngredientRate());
+
+  const res = calc(targetPokemon);
+  console.log(res);
+  console.log(res.getIngredientJson());
+  console.log(res.getBerryEnergy());
 });
 
 /**
