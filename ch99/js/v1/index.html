@@ -25,6 +25,72 @@
           <input type="number" id="level-input" name="level" min="1" max="60" />
         </div>
 
+        <!-- Evolution Number -->
+        <span id="evolution-stage-display">
+          <label for="evolution-stage">進化回数:</label>
+          <input
+            type="number"
+            id="evolution-stage"
+            name="evolution-stage"
+            min="0"
+            max="2"
+          />
+        </span>
+        <!-- Helping Bonus Number-->
+        <span id="helping-bonus-count-display">
+          <label for="helping-bonus-count">お手伝いボーナスの数</label>
+          <input
+            type="number"
+            id="helping-bonus-count"
+            name="helping-bonus-count"
+            value="0"
+            min="0"
+            max="4"
+          />
+        </span>
+
+        <!-- sleep ribbon-->
+        <div class="form-group">
+          <label for="sleep-ribbon">おやすみリボン:</label>
+          <div id="sleep-ribbon" name="sleep-ribbon">
+            <input
+              type="radio"
+              id="none"
+              name="sleep-ribbon"
+              value="0"
+              checked
+            />
+            <label for="none">なし</label>
+            <input
+              type="radio"
+              id="200-hours"
+              name="sleep-ribbon"
+              value="200"
+            />
+            <label for="200-hours">200時間</label>
+            <input
+              type="radio"
+              id="500-hours"
+              name="sleep-ribbon"
+              value="500"
+            />
+            <label for="500-hours">500時間</label>
+            <input
+              type="radio"
+              id="1000-hours"
+              name="sleep-ribbon"
+              value="1000"
+            />
+            <label for="1000-hours">1000時間</label>
+            <input
+              type="radio"
+              id="2000-hours"
+              name="sleep-ribbon"
+              value="2000"
+            />
+            <label for="2000-hours">2000時間</label>
+          </div>
+        </div>
         <!-- Ingredients Selection -->
         <div class="form-group" id="ingredient">
           <label>Ingredients:</label>
@@ -44,22 +110,14 @@
 
         <!-- Sub Skills -->
         <div class="form-group">
-          <label>Sub Skills:</label>
-          <div id="sub-skills-container">
-            <div class="sub-skill">
-              <select name="sub-skill-1" class="sub-skill-select">
-                <option value="" disabled selected>Select a sub-skill</option>
-                <option value="attack">Attack Boost</option>
-                <option value="defense">Defense Boost</option>
-              </select>
-            </div>
-          </div>
+          <label>サブスキル:</label>
+          <div id="sub-skills-container"></div>
           <button type="button" id="add-sub-skill-btn">Add Sub Skill</button>
         </div>
 
         <!-- Nature Selection -->
         <div class="form-group">
-          <label for="nature-select">Nature:</label>
+          <label for="nature-select">性格:</label>
           <select id="nature-select" name="nature">
             <option value="" disabled selected>-</option>
           </select>
@@ -72,32 +130,6 @@
         </div>
       </form>
     </div>
-
-    <script>
-      // Adding sub-skill logic
-      const maxSubSkills = 3;
-      document
-        .getElementById("add-sub-skill-btn")
-        .addEventListener("click", () => {
-          const container = document.getElementById("sub-skills-container");
-          const currentSkills = container.querySelectorAll(".sub-skill").length;
-
-          if (currentSkills < maxSubSkills) {
-            const newSubSkill = document.createElement("div");
-            newSubSkill.classList.add("sub-skill");
-            newSubSkill.innerHTML = `
-          <select name="sub-skill-${
-            currentSkills + 1
-          }" class="sub-skill-select">
-            <option value="" disabled selected>Select a sub-skill</option>
-            <option value="attack">Attack Boost</option>
-            <option value="defense">Defense Boost</option>
-          </select>
-        `;
-            container.appendChild(newSubSkill);
-          }
-        });
-    </script>
 
     <script type="module" src="src/scripts/main.js"></script>
   </body>

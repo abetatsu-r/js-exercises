@@ -1,3 +1,5 @@
+import { IngredientKindInfo } from "../../enums/IngredientKindInfo.js";
+
 /**
  * 食材一覧を反映させる
  * @param {HTMLElement} elem - 反映させる要素
@@ -18,15 +20,15 @@ export function reflectIngredient(elem, order, selectedPokemon) {
     const ingredient_c = ingredientList[2];
 
     if (ingredient_a.quantity[order - 1]) {
-      createRadioAndLabel(ingredient_a, elem, order);
+      createRadioAndLabel(ingredient_a, elem, order, IngredientKindInfo.A);
     }
 
     if (ingredient_b.quantity[order - 1]) {
-      createRadioAndLabel(ingredient_b, elem, order);
+      createRadioAndLabel(ingredient_b, elem, order, IngredientKindInfo.B);
     }
 
     if (ingredient_c.quantity[order - 1]) {
-      createRadioAndLabel(ingredient_c, elem, order);
+      createRadioAndLabel(ingredient_c, elem, order, IngredientKindInfo.C);
     }
   } else {
     // elemの子要素をすべて削除
@@ -34,11 +36,11 @@ export function reflectIngredient(elem, order, selectedPokemon) {
 }
 
 // ラジオボタンの作成 + ラベルの作成
-function createRadioAndLabel(ingredient, elem, order) {
+function createRadioAndLabel(ingredient, elem, order, kind) {
   const radio = document.createElement("input");
   radio.type = "radio";
   radio.name = "ingredient-" + order;
-  radio.value = ingredient.ingredient.name_ja;
+  radio.value = kind;
   radio.checked = true;
   elem.appendChild(radio);
 

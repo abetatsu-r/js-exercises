@@ -5,7 +5,6 @@
  */
 export function displayPokemonType(displayElement, selectedPokemon) {
   if (selectedPokemon) {
-    console.log(selectedPokemon);
     displayElement.textContent = selectedPokemon.type.name;
   } else {
     displayElement.textContent = "";
