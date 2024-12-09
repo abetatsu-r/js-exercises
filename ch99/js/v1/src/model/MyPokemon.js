@@ -92,6 +92,36 @@ export class MyPokemon {
     );
   }
 
+  // スキル確率計算
+  getSkillTriggerRate() {
+    // 基準スキル確率
+    const standardSkillTriggerRate = this.pokemon.skill_trigger_rate * 100;
+
+    // 性格補正値(上昇なら1.2、下降なら0.8)
+    const natureCorrection =
+      this.nature.up === NatureEffectedParam.SKILL_TRIGGER
+        ? 12
+        : this.nature.down === NatureEffectedParam.SKILL_TRIGGER
+        ? 8
+        : 10;
+
+    // サブスキル補正値
+    const subSkillCorrection =
+      100 +
+      18 * this.hasSubSkill(SubSkillInfo.SKILL_TRIGGER_S) +
+      36 * this.hasSubSkill(SubSkillInfo.SKILL_TRIGGER_M);
+
+    return (
+      (standardSkillTriggerRate * natureCorrection * subSkillCorrection) /
+      100000
+    );
+  }
+
+  // スキルストック可能数計算
+  getSkillStockLimit() {
+    return 1 + (this.pokemon.specialty === Specialty.SKILLS ? 1 : 0);
+  }
+
   // 最大所持数計算
   getCarryLimit() {
     // 初期値

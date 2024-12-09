@@ -9,6 +9,7 @@ import { MyPokemon } from "./MyPokemon.js";
  * @param {number[3]} totalIngredients
  * @param {number[3]} totalIngredientsWithoutLost 所持数上限に引っかからなかった場合の食材期待値
  * @param {number} totalSkillCount
+ * @param {number} postHelpingEnergy 一日のお手伝い終了時の元気
  */
 export default class CalcResult {
   constructor(
@@ -17,7 +18,8 @@ export default class CalcResult {
     totalBerriesWithoutLost,
     totalIngredients,
     totalIngredientsWithoutLost,
-    totalSkillCount
+    totalSkillCount,
+    postHelpingEnergy
   ) {
     this.pokemon = pokemon;
     this.totalBerries = totalBerries;
@@ -25,6 +27,7 @@ export default class CalcResult {
     this.totalIngredients = totalIngredients;
     this.totalIngredientsWithoutLost = totalIngredientsWithoutLost;
     this.totalSkillCount = totalSkillCount;
+    this.postHelpingEnergy = postHelpingEnergy;
   }
 
   getBerryEnergy() {

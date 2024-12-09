@@ -24,12 +24,16 @@ export function calc(myPokemon) {
   // いいキャンプチケットの有無
   const hasGoodCampTicket = false;
 
-  // pokemon事固有の値
+  /**
+   * pokemon事固有の値
+   */
+  // きのみ関連
   const helpingSpeed = myPokemon.getHelpTime(); // お手伝い能力
   const constCarryLimit = myPokemon.getCarryLimit();
   let carryLimit = constCarryLimit; // 最大所持数
   const berryCount = myPokemon.getBerriesCount(); // 一度に持ってくるきのみの数
 
+  // 食材関連
   const constIngredientRate = myPokemon.getIngredientRate(); // 食材確率
   let ingredientRate = constIngredientRate;
   let ingredient1 = myPokemon.getIngredientCount1(); // 第一食材
@@ -37,6 +41,14 @@ export function calc(myPokemon) {
   let ingredient3 = myPokemon.getIngredientCount3(); // 第三食材
 
   let ingredientPattern = Math.floor(myPokemon.level / 30) + 1; // TODO: 第三食材まで空いていれば
+
+  // スキル関連
+  const skillTriggerRate = myPokemon.getSkillTriggerRate(); // スキル発動確率
+  const skillActivationThreshold = myPokemon.pokemon.skill_activation_threshold; // スキル発動天井回数
+  let skillStock = 0; // スキルストック数
+  let maxSkillStock = myPokemon.getSkillStockLimit(); // スキル最大ストック数
+  let skillTriggerCount = 0; // スキル発動回数
+  let skillCount = 0; // スキル発動判定関数
 
   let actualHelpingTime = calcActualHelpingTime(
     helpingSpeed,
@@ -53,6 +65,8 @@ export function calc(myPokemon) {
 
   let totalIngredientsWithoutLost = [0, 0, 0];
 
+  let totalSkillCount = 0;
+
   /**
    * 暫定モデル
    * - modelについてを参照
@@ -63,6 +77,8 @@ export function calc(myPokemon) {
       // タップ処理
       carryLimit = constCarryLimit;
       ingredientRate = constIngredientRate;
+      totalSkillCount += skillStock;
+      skillStock = 0;
       tapTiming.shift();
     }
     // このお手伝いで獲得するきのみの数(小数点以下2桁まで)
@@ -115,6 +131,25 @@ export function calc(myPokemon) {
         ingredient3.amount * (constIngredientRate / ingredientPattern)
       ) / 100;
 
+    // スキル発動判定
+    if (skillCount < skillActivationThreshold) {
+      skillCount++;
+      skillTriggerCount +=
+        (skillTriggerRate / 100) *
+        (skillStock < maxSkillStock) * // これ以上スキルをストックできない時は発生しない
+        Boolean(carryLimit > 0); // 所持数が満タンなら発生しない
+      // 1回以上発動できる状態になったとみなされたらskillcountは0からやり直しになる
+      if (skillTriggerCount - skillStock >= 1) {
+        skillCount = 0;
+        skillStock += 1;
+        skillTriggerCount -= 1;
+      }
+    } else {
+      skillCount = 0;
+      skillStock += 1;
+      skillTriggerCount = 0;
+    }
+
     // 所持数の更新
     carryLimit -= getBerries + totalAllIngredients;
     if (carryLimit <= 0) {
@@ -129,8 +164,8 @@ export function calc(myPokemon) {
     }
 
     // 元気マイナス処理
-    startEnergy -= Math.floor((actualHelpingTime - timeCorrection) / 600);
-    timeCorrection = (actualHelpingTime - timeCorrection) % 600;
+    startEnergy -= Math.floor((actualHelpingTime + timeCorrection) / 600);
+    timeCorrection = (actualHelpingTime - (600 - timeCorrection)) % 600;
 
     // 次のお手伝い時間を計算
     actualHelpingTime = calcActualHelpingTime(
@@ -147,7 +182,8 @@ export function calc(myPokemon) {
     Number(totalBerriesWithoutLost.toFixed(2)),
     totalIngredients.map((val) => Number(val.toFixed(2))),
     totalIngredientsWithoutLost.map((val) => Number(val.toFixed(2))),
-    0
+    totalSkillCount + skillTriggerCount,
+    startEnergy
   );
 }
 
