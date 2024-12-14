@@ -10,10 +10,17 @@ import { reflectSubskillSelect } from "./pokemonForm/reflectSubskill.js";
 import { SubSkillInfo } from "../enums/SubSkillInfo.js";
 import { displayEvolutionStage } from "./pokemonForm/displayEvolutionStage.js";
 import { calc } from "../utils/calculator/calc.js";
+import { displayPokemonImage } from "./pokemonForm/displayPokemonImage.js";
+import { displayPokemonSpecialty } from "./pokemonForm/displayPokemonSpecialty.js";
 
 const form = document.getElementById("pokemon-form");
 const pokemonSelect = document.getElementById("pokemon-select");
 const pokemonTypeDisplay = document.getElementById("pokemon-type-display");
+const pokemonSpecialtyDisplay = document.getElementById(
+  "pokemon-specialty-display"
+);
+
+const pokemonImageErea = document.getElementById("pokemon-image");
 
 const levelInput = document.getElementById("level-input");
 
@@ -44,6 +51,8 @@ pokemonSelect.addEventListener("change", (event) => {
   const selectedPokemon = PokemonInfo[event.target.value];
   displayPokemonType(pokemonTypeDisplay, selectedPokemon);
   displayEvolutionStage(evolutionStageInput, selectedPokemon);
+  displayPokemonImage(pokemonImageErea, selectedPokemon);
+  displayPokemonSpecialty(pokemonSpecialtyDisplay, selectedPokemon);
 
   // 食材反映
   reflectIngredient(ingredient_1, 1, selectedPokemon);
@@ -83,6 +92,15 @@ addSubSkillButton.addEventListener("click", (event) => {
     reflectSubskillSelect(newSubSkillSelect, SubSkillInfo, currentSkills);
 
     subSkillsContainer.appendChild(newSubSkill);
+
+    document
+      .getElementById(`sub-skill-${currentSkills.length + 1}`)
+      .addEventListener("change", (e) => {
+        const selectedSubSkill = SubSkillInfo[e.target.value];
+        const rank = selectedSubSkill.rank;
+        e.target.classList.remove("skill-gold", "skill-silver", "skill-normal");
+        e.target.classList.add("skill-" + rank);
+      });
   }
 });
 

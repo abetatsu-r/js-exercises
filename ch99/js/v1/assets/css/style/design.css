@@ -1,0 +1,20 @@
+.category-label {
+  display: inline-block;
+  background-color: #adff2f; /* 黄緑色 */
+  color: #ffffff; /* 白 */
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; /* 丸みを帯びた文字 */
+  font-size: 14px; /* 必要に応じて調整 */
+  font-weight: bold; /* 太字 */
+  text-align: center;
+  padding: 5px 15px; /* 長円形を作るための余白 */
+  border-radius: 20px; /* 長円形にするための角丸 */
+  border: none; /* 枠線を消す */
+}
+
+.red-text {
+  color: red;
+}
+
+.blue-text {
+  color: blue;
+}

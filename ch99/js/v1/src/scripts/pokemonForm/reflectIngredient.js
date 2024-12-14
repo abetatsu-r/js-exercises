@@ -41,10 +41,22 @@ function createRadioAndLabel(ingredient, elem, order, kind) {
   radio.type = "radio";
   radio.name = "ingredient-" + order;
   radio.value = kind;
+  radio.id = "ingredient-" + order + "-" + kind;
+  radio.style.display = "none";
   radio.checked = true;
   elem.appendChild(radio);
 
   const label = document.createElement("label");
-  label.textContent = ingredient.ingredient.name_ja;
+  label.style.position = "relative";
+  label.style.margin = "0 5px";
+  label.htmlFor = radio.id;
+
+  const img = document.createElement("img");
+  img.src = `assets/images/ingredient/${ingredient.ingredient.name}.png`;
+  img.alt = ingredient.ingredient.name_ja;
+  img.style.width = "30px";
+  img.style.height = "30px";
+
+  label.appendChild(img);
   elem.appendChild(label);
 }

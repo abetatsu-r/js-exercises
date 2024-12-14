@@ -5,29 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemon Sleep Tool</title>
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/style/pokemonImage.css" />
+    <link rel="stylesheet" href="assets/css/style/level.css" />
+    <link rel="stylesheet" href="assets/css/style/evolutionStage.css" />
+    <link rel="stylesheet" href="assets/css/style/name.css" />
+    <link rel="stylesheet" href="assets/css/style/sleepRibbon.css" />
+    <link rel="stylesheet" href="assets/css/style/ingredient.css" />
+    <link rel="stylesheet" href="assets/css/style/subskill.css" />
+    <link rel="stylesheet" href="assets/css/style/design.css" />
+    <link rel="stylesheet" href="assets/css/style/nature.css" />
   </head>
   <body>
+    <h1>Pokemon Sleep Tool</h1>
     <div class="container">
-      <h1>Pokemon Sleep Tool</h1>
       <form id="pokemon-form">
+        <div class="form-group image-block">
+          <img id="pokemon-image" style="display: none" />
+          <div>
+            <div id="pokemon-type-display">
+              <label class="type-label" style="display: none">タイプ</label
+              ><img class="type-image" style="display: none" />
+            </div>
+            <div id="pokemon-specialty-display">
+              <label class="specialty-label" style="display: none">とくい</label
+              ><label class="specialty-value"></label>
+            </div>
+          </div>
+        </div>
+        <!-- Level Input -->
+        <div class="form-group level-block">
+          <label class="level-input-label" for="level-input">Lv.</label>
+          <input type="number" id="level-input" name="level" min="1" max="60" />
+        </div>
         <!-- Pokemon Selection -->
-        <div class="form-group">
-          <label for="pokemon-select">Select Pokemon:</label>
+        <div class="form-group pokemon-block">
+          <label for="pokemon-select">〇</label>
           <select id="pokemon-select" name="pokemon">
             <option value="" disabled selected>ポケモン</option>
           </select>
-          <span id="pokemon-type-display"></span>
-        </div>
-
-        <!-- Level Input -->
-        <div class="form-group">
-          <label for="level-input">Level (1-60):</label>
-          <input type="number" id="level-input" name="level" min="1" max="60" />
         </div>
 
         <!-- Evolution Number -->
-        <span id="evolution-stage-display">
-          <label for="evolution-stage">進化回数:</label>
+        <div
+          class="form-group evolution-stage-block"
+          id="evolution-stage-display"
+        >
+          <label for="evolution-stage">進化回数</label>
           <input
             type="number"
             id="evolution-stage"
@@ -35,9 +58,101 @@
             min="0"
             max="2"
           />
-        </span>
+        </div>
+
+        <!-- sleep ribbon-->
+        <div class="form-group sleep-ribbon-block">
+          <label for="sleep-ribbon">リボン</label>
+          <div id="sleep-ribbon" name="sleep-ribbon">
+            <input
+              type="radio"
+              id="none"
+              name="sleep-ribbon"
+              value="0"
+              checked
+            />
+            <label for="none" class="radio-image">なし</label>
+            <input
+              type="radio"
+              id="ribbon-200-hours"
+              name="sleep-ribbon"
+              value="200"
+            />
+            <label
+              for="ribbon-200-hours"
+              class="radio-image sleep-ribbon"
+            ></label>
+            <input
+              type="radio"
+              id="ribbon-500-hours"
+              name="sleep-ribbon"
+              value="500"
+            />
+            <label
+              for="ribbon-500-hours"
+              class="radio-image sleep-ribbon"
+            ></label>
+            <input
+              type="radio"
+              id="ribbon-1000-hours"
+              name="sleep-ribbon"
+              value="1000"
+            />
+            <label
+              for="ribbon-1000-hours"
+              class="radio-image sleep-ribbon"
+            ></label>
+            <input
+              type="radio"
+              id="ribbon-2000-hours"
+              name="sleep-ribbon"
+              value="2000"
+            />
+            <label
+              for="ribbon-2000-hours"
+              class="radio-image sleep-ribbon"
+            ></label>
+          </div>
+        </div>
+        <!-- Ingredients Selection -->
+        <div class="form-group ingredient-block" id="ingredient">
+          <label id="ingredient-label" class="category-label">食材</label>
+          <div>
+            <label for="ingredient-1"></label>
+            <div id="ingredient-1" name="ingredient-1"></div>
+          </div>
+          <div>
+            <label for="ingredient-2">/</label>
+            <div id="ingredient-2" name="ingredient-2"></div>
+          </div>
+          <div>
+            <label for="ingredient-60">/</label>
+            <div id="ingredient-3" name="ingredient-3"></div>
+          </div>
+        </div>
+
+        <!-- Sub Skills -->
+        <div class="form-group subskill-block">
+          <label id="sub-skills-label" class="category-label">サブスキル</label>
+          <div id="sub-skills-container">
+            <button type="button" id="add-sub-skill-btn">+</button>
+          </div>
+        </div>
+
+        <!-- Nature Selection -->
+        <div class="form-group nature-block">
+          <label for="nature-select" class="category-label">せいかく</label>
+          <select id="nature-select" name="nature">
+            <option value="" disabled selected>-</option>
+          </select>
+          <span id="nature-effected-param-display"></span>
+        </div>
+
         <!-- Helping Bonus Number-->
-        <span id="helping-bonus-count-display">
+        <div
+          class="form-group helping-bonus-count-block"
+          id="helping-bonus-count-display"
+        >
           <label for="helping-bonus-count">お手伝いボーナスの数</label>
           <input
             type="number"
@@ -47,83 +162,7 @@
             min="0"
             max="4"
           />
-        </span>
-
-        <!-- sleep ribbon-->
-        <div class="form-group">
-          <label for="sleep-ribbon">おやすみリボン:</label>
-          <div id="sleep-ribbon" name="sleep-ribbon">
-            <input
-              type="radio"
-              id="none"
-              name="sleep-ribbon"
-              value="0"
-              checked
-            />
-            <label for="none">なし</label>
-            <input
-              type="radio"
-              id="200-hours"
-              name="sleep-ribbon"
-              value="200"
-            />
-            <label for="200-hours">200時間</label>
-            <input
-              type="radio"
-              id="500-hours"
-              name="sleep-ribbon"
-              value="500"
-            />
-            <label for="500-hours">500時間</label>
-            <input
-              type="radio"
-              id="1000-hours"
-              name="sleep-ribbon"
-              value="1000"
-            />
-            <label for="1000-hours">1000時間</label>
-            <input
-              type="radio"
-              id="2000-hours"
-              name="sleep-ribbon"
-              value="2000"
-            />
-            <label for="2000-hours">2000時間</label>
-          </div>
         </div>
-        <!-- Ingredients Selection -->
-        <div class="form-group" id="ingredient">
-          <label>Ingredients:</label>
-          <div>
-            <label for="ingredient-1">第一食材:</label>
-            <div id="ingredient-1" name="ingredient-1"></div>
-          </div>
-          <div>
-            <label for="ingredient-2">第二食材:</label>
-            <div id="ingredient-2" name="ingredient-2"></div>
-          </div>
-          <div>
-            <label for="ingredient-60">第三食材:</label>
-            <div id="ingredient-3" name="ingredient-3"></div>
-          </div>
-        </div>
-
-        <!-- Sub Skills -->
-        <div class="form-group">
-          <label>サブスキル:</label>
-          <div id="sub-skills-container"></div>
-          <button type="button" id="add-sub-skill-btn">Add Sub Skill</button>
-        </div>
-
-        <!-- Nature Selection -->
-        <div class="form-group">
-          <label for="nature-select">性格:</label>
-          <select id="nature-select" name="nature">
-            <option value="" disabled selected>-</option>
-          </select>
-          <span id="nature-effected-param-display"></span>
-        </div>
-
         <!-- Calculate Button -->
         <div class="form-group">
           <button type="submit" id="calculate-btn">Calculate</button>

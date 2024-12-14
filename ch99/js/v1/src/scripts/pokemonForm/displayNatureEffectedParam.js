@@ -15,8 +15,11 @@ export function displayNatureEffectedParam(displayElement, selectedNature) {
     }
 
     const natureEffectedParam =
-      selectedNature.up + "▲▲ " + selectedNature.down + "▼▼";
-    displayElement.textContent = natureEffectedParam;
+      selectedNature.up +
+      '<span class="red-text">▲▲</span><br>' +
+      selectedNature.down +
+      '<span class="blue-text">▼▼</span>';
+    displayElement.innerHTML = natureEffectedParam;
   } else {
     displayElement.textContent = "";
   }

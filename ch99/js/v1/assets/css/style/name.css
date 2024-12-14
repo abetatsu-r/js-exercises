@@ -1,0 +1,53 @@
+/**level表記**/
+.pokemon-block {
+  grid-row: 1;
+  grid-column: 3;
+  display: grid;
+  height: 50px;
+  width: 200px;
+  align-items: center;
+}
+
+/**Lv表記のラベル**/
+.pokemon-block label {
+  grid-row: 1;
+  grid-column: 1;
+  width: 40px;
+  align-items: center;
+  color: #00ff7f; /* 緑色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 16px; /* 適度な文字サイズ */
+}
+
+/**Lv表記数字のセレクトボックス**/
+.pokemon-block select {
+  grid-row: 1;
+  grid-column: 2;
+  width: 150px;
+  appearance: none; /* デフォルトのスタイルを無効化 */
+  border: none; /* 枠線を非表示 */
+  color: #000000; /* 黒色の文字 */
+  font-weight: bold; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 16px; /* 適度な文字サイズ */
+  padding: 8px 12px; /* 適度な余白 */
+  border-radius: 10px; /* 角を丸くする */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 立体感を追加 */
+  max-height: 60px; /* 最大高さ */
+  overflow-y: auto; /* 縦スクロールを有効に */
+}
+
+.pokemon-block select:focus {
+  outline: none; /* フォーカス時の枠線を非表示 */
+  background-color: #ffec8b; /* フォーカス時に少し明るい黄色 */
+}
+
+.pokemon-block select option {
+  background-color: #ffffff; /* オプションの背景色 */
+  color: #000000; /* オプションの文字色 */
+}
+
+.pokemon-block select option:hover {
+  background-color: #ffec8b; /* ホバー時の背景色 */
+}

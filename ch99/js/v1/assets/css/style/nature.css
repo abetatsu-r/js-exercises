@@ -1,0 +1,44 @@
+/**性格関連のcss**/
+.nature-block {
+  grid-row: 5;
+  grid-column: 2 / span 3;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.nature-block * {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.nature-block label {
+  width: 90px;
+  height: 20px;
+}
+
+/**進化回数入力欄**/
+.nature-block select {
+  grid-row: 1;
+  grid-column: 2;
+  width: 140px;
+  height: 40px;
+  appearance: none; /* デフォルトのスタイルを無効化 */
+  border-color: #00ff7f; /* 枠線を非表示 */
+  border-width: 2px;
+  color: #000000; /* 黒色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 12px; /* 適度な文字サイズ */
+  padding: 5px 5px; /* 適度な余白 */
+  border-radius: 10px; /* 角を丸くする */
+  margin-right: 10px;
+}
+
+/**性格表記のspan**/
+.nature-block span {
+  font-weight: 700; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 12px; /* 適度な文字サイズ */
+  margin-left: 0px;
+}
