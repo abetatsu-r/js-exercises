@@ -35,7 +35,7 @@ export class MyPokemon {
   /**
    * お手伝い時間能力を計算する
    */
-  getHelpTime() {
+  getHelpTime(teamHelpingBonusCount) {
     // 基準お手伝い時間
     const standardHelpTime = this.pokemon.standard_help_time;
 
@@ -57,7 +57,7 @@ export class MyPokemon {
         (0.14 * this.hasSubSkill(SubSkillInfo.HELPING_SPEED_M) +
           0.07 * this.hasSubSkill(SubSkillInfo.HELPING_SPEED_S) +
           0.05 * this.hasSubSkill(SubSkillInfo.HELPING_BONUS) +
-          0.05 * this.options.helpingBonusCount)
+          0.05 * teamHelpingBonusCount)
       //(:TODO) おてぼパーティ補正がある場合は増やす必要あり
     );
 

@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="assets/css/style/subskill.css" />
     <link rel="stylesheet" href="assets/css/style/design.css" />
     <link rel="stylesheet" href="assets/css/style/nature.css" />
+
+    <link rel="stylesheet" href="assets/css/envSettings/offCanvasStyle.css" />
+    <link rel="stylesheet" href="assets/css/envSettings/toggleButton.css" />
   </head>
   <body>
     <h1>Pokemon Sleep Tool</h1>
@@ -170,6 +173,143 @@
       </form>
     </div>
 
+    <!--環境設定欄-->
+    <div id="envSettings" class="off-canvas">
+      <div class="off-canvas-content">
+        <h2>プレイスタイル設定</h2>
+        <button id="env-toggle-button">env</button>
+        <form id="env-form">
+          <div>
+            <label class="env-item-title">稼働時間</label>
+            <div>
+              <label for="env-input-start-time" class="env-item-label"
+                >開始</label
+              >
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-input-start-time"
+                name="env-input-start-time"
+                value="08:00"
+              />
+              <label for="env-input-end-time" class="env-item-label"
+                >終了</label
+              >
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-input-end-time"
+                name="env-input-end-time"
+                value="22:00"
+              />
+            </div>
+          </div>
+          <div>
+            <label class="env-item-title">睡眠時間</label>
+            <div>
+              <label for="env-input-sleep-in-time" class="env-item-label"
+                >開始</label
+              >
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-input-sleep-in-time"
+                name="env-input-sleep-in-time"
+                value="22:00"
+              />
+              <label for="env-input-awake-time" class="env-item-label"
+                >終了</label
+              >
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-input-awake-time"
+                name="env-input-awake-time"
+                value="08:00"
+              />
+            </div>
+          </div>
+          <div>
+            <label>ログインタイミング </label>
+            <div class="env-settings-tap-timing">
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-tap-timing-1"
+                name="env-tap-timing-1"
+                value="08:00"
+              />
+              <label>
+                <input type="radio" name="count-efe-1" value="0" checked /> 0
+              </label>
+              <label>
+                <input type="radio" name="count-efe-1" value="1" /> 1
+              </label>
+              <label>
+                <input type="radio" name="count-efe-1" value="2" /> 2
+              </label>
+            </div>
+            <button type="button" id="add-tap-timing-btn">+</button>
+            <div>
+              <label>いいキャンプチケット</label>
+              <label class="toggle-switch">
+                <input id="goodCampToggle" type="checkbox" />
+                <span for="goodCampToggle" class="slider"></span>
+              </label>
+            </div>
+            <div>
+              <label>お手伝いボーナス</label>
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name="count-team-helping-bonus"
+                    value="0"
+                    checked
+                  />
+                  0
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="count-team-helping-bonus"
+                    value="1"
+                  />
+                  1
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="count-team-helping-bonus"
+                    value="2"
+                  />
+                  2
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="count-team-helping-bonus"
+                    value="3"
+                  />
+                  3
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="count-team-helping-bonus"
+                    value="4"
+                  />
+                  4
+                </label>
+              </div>
+            </div>
+            <button type="submit" id="env-register-btn">登録</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <script type="module" src="src/scripts/main.js"></script>
+    <script type="module" src="src/scripts/offCanvasUtil.js"></script>
   </body>
 </html>

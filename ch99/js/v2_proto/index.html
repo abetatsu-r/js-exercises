@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Sleep Env Settings</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ボタン -->
+    <button id="envButton">env</button>
+
+    <!-- オフキャンバスメニュー -->
+    <div id="offCanvasMenu" class="off-canvas">
+      <div class="off-canvas-content">
+        <h2>Env Settings</h2>
+        <form id="envForm">
+          <!-- 稼働時刻 -->
+          <label for="activeStart">稼働開始時間:</label>
+          <input
+            type="time"
+            id="activeStart"
+            name="activeStart"
+            value="07:00"
+            required
+          />
+
+          <label for="activeEnd">稼働終了時間:</label>
+          <input
+            type="time"
+            id="activeEnd"
+            name="activeEnd"
+            value="31:00"
+            required
+          />
+
+          <!-- 睡眠時間 -->
+          <label for="sleepStart">睡眠開始時刻:</label>
+          <input type="time" id="sleepStart" name="sleepStart" value="22:30" />
+
+          <label for="sleepDuration">睡眠時間 (h):</label>
+          <input
+            type="number"
+            id="sleepDuration"
+            name="sleepDuration"
+            value="8"
+            min="1"
+            max="12"
+          />
+
+          <!-- いいキャンプチケット -->
+          <label for="goodCampTicket">いいキャンプチケット:</label>
+          <select id="goodCampTicket" name="goodCampTicket">
+            <option value="off" selected>Off</option>
+            <option value="on">On</option>
+          </select>
+
+          <!-- お手伝いボーナス -->
+          <label for="helperBonus">お手伝いボーナス:</label>
+          <input
+            type="number"
+            id="helperBonus"
+            name="helperBonus"
+            value="0"
+            min="0"
+            max="4"
+          />
+
+          <!-- ログインタイミング -->
+          <fieldset id="loginTimings">
+            <legend>ログインタイミング:</legend>
+            <div class="login-entry">
+              <label for="loginTime1">ログイン時間:</label>
+              <input
+                type="time"
+                id="loginTime1"
+                name="loginTime"
+                class="login-time"
+              />
+
+              <label for="cheerCount1">元気エール回数:</label>
+              <input
+                type="number"
+                id="cheerCount1"
+                name="cheerCount"
+                class="cheer-count"
+                value="2"
+                min="0"
+                max="2"
+              />
+            </div>
+            <button type="button" id="addLoginTime">＋タイミング追加</button>
+          </fieldset>
+
+          <!-- 元気エールレベル -->
+          <label for="cheerLevel">元気エールのレベル:</label>
+          <input
+            type="number"
+            id="cheerLevel"
+            name="cheerLevel"
+            value="1"
+            min="1"
+            max="6"
+          />
+
+          <!-- 登録ボタン -->
+          <button type="submit" id="registerButton">登録</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

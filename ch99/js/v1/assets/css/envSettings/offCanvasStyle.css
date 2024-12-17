@@ -1,0 +1,48 @@
+#env-toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.off-canvas {
+  position: fixed;
+  top: 0;
+  right: -340px; /* 初期は隠れる位置 */
+  width: 300px;
+  height: 100%;
+  background: #f4f4f4;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.off-canvas.open {
+  right: 0; /* 表示状態 */
+}
+
+.off-canvas-handle {
+  position: absolute;
+  top: 50%;
+  left: -25px; /* 左に少しはみ出す */
+  transform: translateY(-50%);
+  width: 25px;
+  height: 50px;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  font-size: 16px;
+  z-index: 1050;
+}
