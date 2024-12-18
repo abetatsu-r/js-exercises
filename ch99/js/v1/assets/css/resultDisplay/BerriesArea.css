@@ -1,0 +1,21 @@
+.result-berries-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 1;
+  grid-column: 2;
+  gap: 5px;
+}
+
+/*きのみ個数領域*/
+.result-berries-count-area {
+  height: 35px;
+  display: flex;
+  background-color: blueviolet;
+}
+
+/*画像領域*/
+.result-berries-count-area img {
+  height: 35px;
+  width: 35px;
+}

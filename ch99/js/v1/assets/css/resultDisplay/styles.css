@@ -1,0 +1,17 @@
+#result-top-container {
+  margin: 20px auto;
+  width: 800px;
+}
+
+.result-container {
+  display: grid;
+  grid-template-columns: 100px 160px 100px 360px;
+  grid-template-rows: 75px;
+  gap: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 20 auto;
+  width: 800px;
+  height: 75px;
+  background-color: #f9f9f9;
+}

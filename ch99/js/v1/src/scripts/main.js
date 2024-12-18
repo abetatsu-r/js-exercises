@@ -12,6 +12,7 @@ import { displayEvolutionStage } from "./pokemonForm/displayEvolutionStage.js";
 import { calc } from "../utils/calculator/calc.js";
 import { displayPokemonImage } from "./pokemonForm/displayPokemonImage.js";
 import { displayPokemonSpecialty } from "./pokemonForm/displayPokemonSpecialty.js";
+import { displayResult } from "./resultDisplay/displayResult.js";
 
 const form = document.getElementById("pokemon-form");
 const pokemonSelect = document.getElementById("pokemon-select");
@@ -126,6 +127,8 @@ form.addEventListener("submit", function (event) {
   console.log(res);
   console.log(res.getIngredientJson());
   console.log(res.getBerryEnergy());
+
+  displayResult(res);
 });
 
 /**

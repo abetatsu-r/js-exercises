@@ -17,6 +17,11 @@
 
     <link rel="stylesheet" href="assets/css/envSettings/offCanvasStyle.css" />
     <link rel="stylesheet" href="assets/css/envSettings/toggleButton.css" />
+
+    <link rel="stylesheet" href="assets/css/resultDisplay/styles.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/pokemonErea.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/BerriesArea.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/ingredientArea.css" />
   </head>
   <body>
     <h1>Pokemon Sleep Tool</h1>
@@ -38,7 +43,14 @@
         <!-- Level Input -->
         <div class="form-group level-block">
           <label class="level-input-label" for="level-input">Lv.</label>
-          <input type="number" id="level-input" name="level" min="1" max="60" />
+          <input
+            type="number"
+            id="level-input"
+            name="level"
+            min="1"
+            max="60"
+            value="50"
+          />
         </div>
         <!-- Pokemon Selection -->
         <div class="form-group pokemon-block">
@@ -179,6 +191,7 @@
         <h2>プレイスタイル設定</h2>
         <button id="env-toggle-button">env</button>
         <form id="env-form">
+          <!--時間入力欄-->
           <div>
             <label class="env-item-title">稼働時間</label>
             <div>
@@ -204,6 +217,7 @@
               />
             </div>
           </div>
+          <!--睡眠時間入力欄-->
           <div>
             <label class="env-item-title">睡眠時間</label>
             <div>
@@ -229,6 +243,7 @@
               />
             </div>
           </div>
+          <!--タップタイミング入力欄-->
           <div>
             <label>ログインタイミング </label>
             <div class="env-settings-tap-timing">
@@ -250,64 +265,53 @@
               </label>
             </div>
             <button type="button" id="add-tap-timing-btn">+</button>
+          </div>
+          <!--いいキャンプチケット設定欄-->
+          <div>
+            <label>いいキャンプチケット</label>
+            <label class="toggle-switch">
+              <input id="goodCampToggle" type="checkbox" />
+              <span for="goodCampToggle" class="slider"></span>
+            </label>
+          </div>
+          <!--お手伝いボーナス設定欄-->
+          <div>
+            <label>お手伝いボーナス</label>
             <div>
-              <label>いいキャンプチケット</label>
-              <label class="toggle-switch">
-                <input id="goodCampToggle" type="checkbox" />
-                <span for="goodCampToggle" class="slider"></span>
+              <label>
+                <input
+                  type="radio"
+                  name="count-team-helping-bonus"
+                  value="0"
+                  checked
+                />
+                0
+              </label>
+              <label>
+                <input type="radio" name="count-team-helping-bonus" value="1" />
+                1
+              </label>
+              <label>
+                <input type="radio" name="count-team-helping-bonus" value="2" />
+                2
+              </label>
+              <label>
+                <input type="radio" name="count-team-helping-bonus" value="3" />
+                3
+              </label>
+              <label>
+                <input type="radio" name="count-team-helping-bonus" value="4" />
+                4
               </label>
             </div>
-            <div>
-              <label>お手伝いボーナス</label>
-              <div>
-                <label>
-                  <input
-                    type="radio"
-                    name="count-team-helping-bonus"
-                    value="0"
-                    checked
-                  />
-                  0
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="count-team-helping-bonus"
-                    value="1"
-                  />
-                  1
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="count-team-helping-bonus"
-                    value="2"
-                  />
-                  2
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="count-team-helping-bonus"
-                    value="3"
-                  />
-                  3
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="count-team-helping-bonus"
-                    value="4"
-                  />
-                  4
-                </label>
-              </div>
-            </div>
-            <button type="submit" id="env-register-btn">登録</button>
           </div>
+          <button type="submit" id="env-register-btn">登録</button>
         </form>
       </div>
     </div>
+
+    <!--結果出力欄-->
+    <div id="result-top-container"></div>
 
     <script type="module" src="src/scripts/main.js"></script>
     <script type="module" src="src/scripts/offCanvasUtil.js"></script>

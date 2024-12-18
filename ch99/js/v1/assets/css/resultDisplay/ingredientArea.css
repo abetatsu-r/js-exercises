@@ -1,0 +1,29 @@
+.result-ingredients-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-row: 1;
+  grid-column: 4;
+}
+
+/**食材1種類ごとの領域**/
+.result-ingredient-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 75px;
+  margin: 10px;
+}
+
+/**食材個数表示位置**/
+.result-ingredient-count-area {
+  display: flex;
+  width: inherit;
+  height: 45px;
+}
+
+.result-ingredient-count-area img {
+  width: 40px;
+  height: 40px;
+}

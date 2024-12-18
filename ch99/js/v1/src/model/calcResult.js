@@ -77,21 +77,21 @@ export default class CalcResult {
 
     return {
       A: {
-        name: this.pokemon.pokemon.ingredients[0].ingredient.name_ja,
+        name: this.pokemon.pokemon.ingredients[0].ingredient.name,
         amount: totalA,
         energy: Math.round(
           totalA * this.pokemon.pokemon.ingredients[0].ingredient.energy
         ),
       },
       B: {
-        name: this.pokemon.pokemon.ingredients[1].ingredient.name_ja,
+        name: this.pokemon.pokemon.ingredients[1].ingredient.name,
         amount: totalB,
         energy: Math.round(
           totalB * this.pokemon.pokemon.ingredients[1].ingredient.energy
         ),
       },
       C: {
-        name: this.pokemon.pokemon.ingredients[2].ingredient.name_ja,
+        name: this.pokemon.pokemon.ingredients[2].ingredient.name,
         amount: totalC,
         energy: Math.round(
           totalC * this.pokemon.pokemon.ingredients[2].ingredient.energy
