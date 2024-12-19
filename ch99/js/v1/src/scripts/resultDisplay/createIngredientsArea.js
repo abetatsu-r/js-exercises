@@ -9,6 +9,9 @@ export function createIngredientsArea(ingredients) {
   // div要素を3つ作成
   for (let ingredient of Object.values(ingredients)) {
     console.log(ingredient);
+    if (ingredient.amount === 0) {
+      continue;
+    }
     const ingredientCountArea = document.createElement("div");
     ingredientCountArea.className = "result-ingredient-count-area";
 
@@ -16,7 +19,7 @@ export function createIngredientsArea(ingredients) {
     ingredientImg.src = `assets/images/ingredient/${ingredient.name}.png`;
     ingredientImg.alt = ingredient.name;
 
-    const ingredientText = document.createElement("p");
+    const ingredientText = document.createElement("label");
     ingredientText.textContent = `×${ingredient.amount}`;
 
     ingredientCountArea.appendChild(ingredientImg);

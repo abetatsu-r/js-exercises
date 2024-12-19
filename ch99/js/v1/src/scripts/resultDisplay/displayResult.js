@@ -1,6 +1,7 @@
 import CalcResult from "../../model/calcResult.js";
 import { createBerriesArea } from "./createBerriesArea.js";
 import { createIngredientsArea } from "./createIngredientsArea.js";
+import { createOptionArea } from "./createOptionArea.js";
 import { createPokemonArea } from "./createPokemonArea.js";
 import { createResultContainer } from "./createResultContainer.js";
 import { createSkillArea } from "./createSkillArea.js";
@@ -25,11 +26,7 @@ export function displayResult(result) {
   // スキルエリア展開
   const skillArea = createSkillArea(result.totalSkillCount);
   // optionエリア展開
-  const optionArea = document.createElement("div");
-  optionArea.className = "result-option-area";
-  optionArea.style.gridColumn = "5";
-  optionArea.style.gridRow = "1";
-  optionArea.style.backgroundColor = "yellow";
+  const optionArea = createOptionArea();
 
   container.appendChild(pokemonArea);
   container.appendChild(berryArea);

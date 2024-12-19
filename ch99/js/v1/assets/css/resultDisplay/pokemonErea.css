@@ -4,7 +4,6 @@
   align-items: center;
   grid-row: 1;
   grid-column: 1;
-  background-color: aqua;
 }
 
 .result-pokemon-area img {
@@ -17,5 +16,7 @@
   font-size: 12px;
   line-height: 20px;
   text-align: center;
-  background-color: blueviolet;
+  color: #666666; /* 黒色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
 }

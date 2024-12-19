@@ -15,16 +15,20 @@
     <link rel="stylesheet" href="assets/css/style/design.css" />
     <link rel="stylesheet" href="assets/css/style/nature.css" />
 
+    <link rel="stylesheet" href="assets/css/envSettings/design.css" />
     <link rel="stylesheet" href="assets/css/envSettings/offCanvasStyle.css" />
     <link rel="stylesheet" href="assets/css/envSettings/toggleButton.css" />
+    <link rel="stylesheet" href="assets/css/envSettings/registerForm.css" />
 
     <link rel="stylesheet" href="assets/css/resultDisplay/styles.css" />
     <link rel="stylesheet" href="assets/css/resultDisplay/pokemonErea.css" />
     <link rel="stylesheet" href="assets/css/resultDisplay/BerriesArea.css" />
     <link rel="stylesheet" href="assets/css/resultDisplay/ingredientArea.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/skillArea.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/optionArea.css" />
   </head>
   <body>
-    <h1>Pokemon Sleep Tool</h1>
+    <h1>Pokemon Sleep Checker</h1>
     <div class="container">
       <form id="pokemon-form">
         <div class="form-group image-block">
@@ -180,7 +184,7 @@
         </div>
         <!-- Calculate Button -->
         <div class="form-group">
-          <button type="submit" id="calculate-btn">Calculate</button>
+          <button type="submit" id="calculate-btn">Calc.</button>
         </div>
       </form>
     </div>
@@ -189,7 +193,7 @@
     <div id="envSettings" class="off-canvas">
       <div class="off-canvas-content">
         <h2>プレイスタイル設定</h2>
-        <button id="env-toggle-button">env</button>
+        <button id="env-toggle-button">設定</button>
         <form id="env-form">
           <!--時間入力欄-->
           <div>
@@ -213,7 +217,7 @@
                 class="env-item-time-input"
                 id="env-input-end-time"
                 name="env-input-end-time"
-                value="22:00"
+                value="08:00"
               />
             </div>
           </div>
@@ -245,30 +249,32 @@
           </div>
           <!--タップタイミング入力欄-->
           <div>
-            <label>ログインタイミング </label>
-            <div class="env-settings-tap-timing">
-              <input
-                type="time"
-                class="env-item-time-input"
-                id="env-tap-timing-1"
-                name="env-tap-timing-1"
-                value="08:00"
-              />
-              <label>
-                <input type="radio" name="count-efe-1" value="0" checked /> 0
-              </label>
-              <label>
-                <input type="radio" name="count-efe-1" value="1" /> 1
-              </label>
-              <label>
-                <input type="radio" name="count-efe-1" value="2" /> 2
-              </label>
+            <div>
+              <label class="env-item-title">ログインタイミング </label>
+              <button type="button" id="add-tap-timing-btn">+</button>
+              <div class="env-settings-tap-timing">
+                <input
+                  type="time"
+                  class="env-item-time-input"
+                  id="env-tap-timing-1"
+                  name="env-tap-timing-1"
+                  value="08:00"
+                />
+                <label>
+                  <input type="radio" name="count-efe-1" value="0" checked /> 0
+                </label>
+                <label>
+                  <input type="radio" name="count-efe-1" value="1" /> 1
+                </label>
+                <label>
+                  <input type="radio" name="count-efe-1" value="2" /> 2
+                </label>
+              </div>
             </div>
-            <button type="button" id="add-tap-timing-btn">+</button>
           </div>
           <!--いいキャンプチケット設定欄-->
           <div>
-            <label>いいキャンプチケット</label>
+            <label class="env-item-title">いいキャンプチケット</label>
             <label class="toggle-switch">
               <input id="goodCampToggle" type="checkbox" />
               <span for="goodCampToggle" class="slider"></span>
@@ -276,7 +282,7 @@
           </div>
           <!--お手伝いボーナス設定欄-->
           <div>
-            <label>お手伝いボーナス</label>
+            <label class="env-item-title">お手伝いボーナス</label>
             <div>
               <label>
                 <input
@@ -305,7 +311,37 @@
               </label>
             </div>
           </div>
-          <button type="submit" id="env-register-btn">登録</button>
+          <button
+            type="button"
+            class="env-before-register"
+            id="env-show-register-form-btn"
+          >
+            登録
+          </button>
+          <button
+            type="button"
+            class="env-register-mode"
+            style="display: none"
+            id="env-cancel-register"
+          >
+            ×
+          </button>
+          <input
+            type="text"
+            class="env-register-mode"
+            id="env-register-name"
+            style="display: none"
+            placeholder="プレイスタイル名"
+          />
+
+          <button
+            type="submit"
+            class="env-register-mode"
+            style="display: none"
+            id="env-register-btn"
+          >
+            OK
+          </button>
         </form>
       </div>
     </div>

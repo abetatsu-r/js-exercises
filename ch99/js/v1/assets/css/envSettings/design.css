@@ -1,41 +1,25 @@
-.env-item-title {
-  font-size: 1.2em;
-  font-weight: bold;
+#env-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   margin-bottom: 10px;
 }
 
-bin
-common_pf
-Dangerfile
-detection.txt
-dic.yml
-Dockerfile
-ds_pf
-e2etest
-en.po
-Gemfile
-Gemfile.lock
-Guardfile
-_includes
-index.adoc
-index.html
-introduction
-_javascripts
-Jenkinsfile
-_lib
-package.json
-package-lock.json
-prh_pu.yml
-prh.yml
-Rakefile
-README.adoc
-README_DIFF.adoc
-README_TRANSLATE.adoc
-rsi_app
-rsi_common
-search.adoc
-search.html
-search_index.ja.js
-_stylesheets
-_template
-_tools
+#env-form label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #444444;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", sans-serif;
+}
+
+.env-item-title {
+  font-size: 18px;
+  font-weight: bold;
+  border-left: 5px solid #2add74;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+h2 {
+  margin-top: 10px;
+}

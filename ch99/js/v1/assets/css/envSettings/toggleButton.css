@@ -41,7 +41,7 @@
 
 /* チェックボックスがチェックされたときのスタイル */
 input:checked + .slider {
-  background-color: #007bff;
+  background-color: #2add74;
 }
 
 input:checked + .slider:before {

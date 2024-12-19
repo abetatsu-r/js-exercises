@@ -23,7 +23,7 @@ export function createBerriesArea(res) {
   berriesImg.src = `assets/images/berry/${res.pokemon.pokemon.type.berry.name}.png`;
 
   // 個数のテキスト
-  const berriesCountText = document.createElement("p");
+  const berriesCountText = document.createElement("label");
   berriesCountText.textContent = `×${res.totalBerries.toFixed(
     1
   )}(${res.totalBerriesWithoutLost.toFixed(1)})`;
@@ -34,7 +34,7 @@ export function createBerriesArea(res) {
   // きのみエナジー
   const berriesEnergyArea = document.createElement("div");
   berriesEnergyArea.className = "result-berries-energy-area";
-  const berriesEnergyText = document.createElement("p");
+  const berriesEnergyText = document.createElement("label");
   berriesEnergyText.textContent = `${(
     res.pokemon.getBerryEnergy() * res.totalBerries
   ).toFixed(1)}(${(

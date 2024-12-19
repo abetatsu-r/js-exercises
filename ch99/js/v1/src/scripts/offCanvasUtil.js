@@ -11,6 +11,12 @@ const envAddTapTimingButton = document.getElementById("add-tap-timing-btn");
 
 const envToggleGoodCampTicket = document.getElementById("goodCampToggle");
 
+const envShowRegisterFormButton = document.getElementById(
+  "env-show-register-form-btn"
+);
+const envCancelRegisterButton = document.getElementById("env-cancel-register");
+const envRegisterNameInput = document.getElementById("env-register-name");
+
 const offCanvasMenu = document.getElementById("envSettings");
 const envToggleButton = document.getElementById("env-toggle-button");
 
@@ -18,6 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // オフキャンバスメニューの開閉
   function toggleMenu() {
     offCanvasMenu.classList.toggle("open");
+    if (envToggleButton.textContent === "×") {
+      envToggleButton.textContent = "設定";
+    } else {
+      envToggleButton.textContent = "×";
+    }
     console.log("toggleMenu");
   }
 
@@ -67,7 +78,32 @@ envAddTapTimingButton.addEventListener("click", () => {
               </label>
   `;
   // envAddTapTimingButtonの前に追加
-  envAddTapTimingButton.before(newTapTiming);
+  envAddTapTimingButton.after(newTapTiming);
+});
+
+// 登録時に名前入力欄を出現させる
+envShowRegisterFormButton.addEventListener("click", () => {
+  // env-register-modeクラスの要素のdisplay:noneを削除
+  const elements = document.querySelectorAll(".env-register-mode");
+  console.log(elements);
+  elements.forEach((element) => {
+    element.style.display = "";
+  });
+
+  // env-show-register-form-btnのdisplay:noneを追加
+  envShowRegisterFormButton.style.display = "none";
+});
+
+// 登録をキャンセルする場合に再度登録欄を出現させる
+envCancelRegisterButton.addEventListener("click", () => {
+  // env-register-modeクラスの要素のdisplay:noneを追加
+  const elements = document.querySelectorAll(".env-register-mode");
+  elements.forEach((element) => {
+    element.style.display = "none";
+  });
+
+  // env-show-register-form-btnのdisplay:noneを削除
+  envShowRegisterFormButton.style.display = "";
 });
 
 // form送信時の操作
@@ -75,14 +111,15 @@ envForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const env = createEnv();
-  sessionStorage.setItem("env", JSON.stringify(env));
+  const name = envRegisterNameInput.value;
+  sessionStorage.setItem("env-" + name, JSON.stringify(env));
 });
 
 /**
  * envフォームの情報からEnvクラスを生成する
  * (:TODO) 24h以降の入力を受け付けていないので、基本的にはstartTimeから24時間以内の値という前提
  */
-function createEnv() {
+export function createEnv() {
   // 稼働時間
   const startTime = convertStartTimeToSeconds(envInputStartTime.value);
   const endTime =
@@ -118,7 +155,7 @@ function createEnv() {
   });
 
   return new Env(
-    "test",
+    envRegisterNameInput.value,
     startTime,
     endTime,
     sleepInTime,

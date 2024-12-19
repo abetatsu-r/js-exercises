@@ -18,3 +18,27 @@
 .blue-text {
   color: blue;
 }
+
+#calculate-btn {
+  height: 35px;
+  width: 60px;
+  border-color: #883b27;
+  background-color: orange;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 立体感を追加 */
+  color: white;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; /* 丸みを帯びた文字 */
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+#calculate-btn:hover {
+  border: orange 5px solid;
+  color: orange;
+  font-size: 14px;
+  font-weight: 900;
+  background-color: cornsilk;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* 立体感を追加 */
+}

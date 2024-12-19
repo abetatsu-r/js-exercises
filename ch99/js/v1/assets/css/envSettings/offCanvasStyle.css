@@ -3,7 +3,7 @@
   top: 20px;
   right: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #ff7756;
   color: white;
   border: none;
   border-radius: 5px;
@@ -11,18 +11,31 @@
   z-index: 1100;
 }
 
+#env-toggle-button {
+  height: 40px;
+  width: auto;
+  border: 2px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: width 1s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 立体感を追加 */
+}
+
 .off-canvas {
   position: fixed;
   top: 0;
-  right: -340px; /* 初期は隠れる位置 */
+  right: -360px; /* 初期は隠れる位置 */
   width: 300px;
   height: 100%;
-  background: #f4f4f4;
+  background: #fefefe;
+  border-left: 10px groove #ff7756;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transition: right 0.3s ease-in-out;
   overflow-y: auto;
   z-index: 1000;
   padding: 20px;
+  padding-left: 30px;
 }
 
 .off-canvas.open {
@@ -45,4 +58,67 @@
   border-radius: 0 5px 5px 0;
   font-size: 16px;
   z-index: 1050;
+}
+
+#add-tap-timing-btn {
+  display: inline-flex; /* 中央揃えに便利な設定 */
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center; /* 縦方向の中央揃え */
+  background-color: #2add74; /* トマト色（赤系） */
+  color: #ffffff; /* 白い文字 */
+  font-weight: bold; /* 太字 */
+  font-size: 18px; /* 適度な文字サイズ */
+  width: 20px; /* 正円の直径 */
+  height: 20px; /* 正円の直径 */
+  border-radius: 50%; /* 正円 */
+  border: none; /* 枠線を消す */
+  cursor: pointer; /* クリック可能 */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* 立体感 */
+  transition:
+    transform 0.2s,
+    background-color 0.2s; /* スマートなアニメーション */
+}
+
+#env-show-register-form-btn {
+  padding: 5px 20px;
+  background-color: #ff7756;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* 立体感 */
+}
+
+#env-register-btn {
+  padding: 5px 20px;
+  background-color: #ff7756;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* 立体感 */
+}
+
+#env-cancel-register {
+  display: inline-flex; /* 中央揃えに便利な設定 */
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center; /* 縦方向の中央揃え */
+  background-color: #2add74; /* トマト色（赤系） */
+  color: #ffffff; /* 白い文字 */
+  font-weight: bold; /* 太字 */
+  font-size: 18px; /* 適度な文字サイズ */
+  width: 20px; /* 正円の直径 */
+  height: 20px; /* 正円の直径 */
+  border-radius: 50%; /* 正円 */
+  border: none; /* 枠線を消す */
+  cursor: pointer; /* クリック可能 */
+  transition:
+    transform 0.2s,
+    background-color 0.2s; /* スマートなアニメーション */
 }

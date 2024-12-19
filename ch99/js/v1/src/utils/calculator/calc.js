@@ -1,6 +1,7 @@
 import CalcResult from "../../model/calcResult.js";
 import { MyPokemon } from "../../model/MyPokemon.js";
 import Env from "../../model/env.js";
+import { createEnv } from "../../scripts/offCanvasUtil.js";
 
 /**
  * 計算実行部
@@ -11,7 +12,7 @@ export function calc(myPokemon) {
    * envの読み取り
    */
   // env取得
-  const env = JSON.parse(sessionStorage.getItem("env"));
+  const env = createEnv();
 
   // 計測時間
   const end_time = env.time;
