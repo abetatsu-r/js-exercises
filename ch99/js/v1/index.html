@@ -251,7 +251,6 @@
           <div>
             <div>
               <label class="env-item-title">ログインタイミング </label>
-              <button type="button" id="add-tap-timing-btn">+</button>
               <div class="env-settings-tap-timing">
                 <input
                   type="time"
@@ -270,6 +269,7 @@
                   <input type="radio" name="count-efe-1" value="2" /> 2
                 </label>
               </div>
+              <button type="button" id="add-tap-timing-btn">+</button>
             </div>
           </div>
           <!--いいキャンプチケット設定欄-->
@@ -348,7 +348,21 @@
 
     <!--結果出力欄-->
     <div id="result-top-container"></div>
+    <div class="clock"></div>
+    <script type="text/javascript">
+      function displayTime() {
+        const now = new Date();
+        const hour = now.getHours();
+        const minute = now.getMinutes();
+        const second = now.getSeconds();
 
+        const currentTime = `${hour}:${minute}:${second}`;
+        document.querySelector(".clock").textContent = currentTime;
+      }
+
+      displayTime();
+      setInterval(displayTime, 1000);
+    </script>
     <script type="module" src="src/scripts/main.js"></script>
     <script type="module" src="src/scripts/offCanvasUtil.js"></script>
   </body>

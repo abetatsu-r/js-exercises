@@ -29,7 +29,7 @@ export function calc(myPokemon) {
     time: elem,
     count: env.efeTimings[index],
   }));
-  console.log(energyAleTiming[1]);
+  console.log(energyAleTiming);
 
   // いいキャンプチケットの有無
   const hasGoodCampTicket = env.hasGoodCampTicket;
@@ -40,6 +40,7 @@ export function calc(myPokemon) {
   // きのみ関連
   const helpingSpeed = myPokemon.getHelpTime(env.teamHelpingBonusCount); // お手伝い能力
   const constCarryLimit = myPokemon.getCarryLimit();
+  console.log(constCarryLimit);
   let carryLimit = constCarryLimit; // 最大所持数
   const berryCount = myPokemon.getBerriesCount(); // 一度に持ってくるきのみの数
 
@@ -81,6 +82,7 @@ export function calc(myPokemon) {
    * 暫定モデル
    * - modelについてを参照
    */
+
   while (start_time < end_time) {
     // タップタイミングの処理
     if (tapTiming && start_time > tapTiming[0]) {
@@ -167,9 +169,6 @@ export function calc(myPokemon) {
     }
 
     // 元気エール発動タイミングの処理
-    console.log(energyAleTiming);
-    console.log(energyAleTiming[0]);
-
     if (energyAleTiming.length && start_time > energyAleTiming[0].time) {
       // 元気エール発動処理
       startEnergy += 18 * energyAleTiming[0].count;

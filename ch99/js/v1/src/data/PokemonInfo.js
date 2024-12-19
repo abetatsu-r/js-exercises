@@ -95,6 +95,23 @@ const PokemonInfo = Object.freeze({
     0.95,
     1
   ),
+  SKELEDIRGE: new Pokemon(
+    911,
+    "ラウドボーン",
+    TypeInfo.GHOST,
+    Specialty.INGREDIENTS,
+    3200,
+    [
+      new Ingredients(IngredientInfo.APPLE, [2, 5, 7]),
+      new Ingredients(IngredientInfo.MEET, [null, 4, 6]),
+      new Ingredients(IngredientInfo.HERBS, [null, null, 5]),
+    ],
+    26.8,
+    19,
+    null,
+    6.2,
+    2
+  ),
 });
 
 export default PokemonInfo;

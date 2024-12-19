@@ -78,7 +78,7 @@ envAddTapTimingButton.addEventListener("click", () => {
               </label>
   `;
   // envAddTapTimingButtonの前に追加
-  envAddTapTimingButton.after(newTapTiming);
+  envAddTapTimingButton.before(newTapTiming);
 });
 
 // 登録時に名前入力欄を出現させる
