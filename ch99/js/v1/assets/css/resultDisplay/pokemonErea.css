@@ -1,0 +1,22 @@
+.result-pokemon-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.result-pokemon-area img {
+  width: 75px;
+  height: 50px;
+}
+
+.result-pokemon-area label {
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: #666666; /* 黒色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+}

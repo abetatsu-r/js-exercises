@@ -1,0 +1,28 @@
+.result-option-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 1;
+  grid-column: 5;
+  gap: 5px;
+}
+
+.result-option-delete-button {
+  margin-top: 28px;
+  display: inline-flex; /* 中央揃えに便利な設定 */
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center; /* 縦方向の中央揃え */
+  background-color: #ff6347; /* トマト色（赤系） */
+  color: #ffffff; /* 白い文字 */
+  font-weight: bold; /* 太字 */
+  font-size: 18px; /* 適度な文字サイズ */
+  width: 20px; /* 正円の直径 */
+  height: 20px; /* 正円の直径 */
+  border-radius: 50%; /* 正円 */
+  border: none; /* 枠線を消す */
+  cursor: pointer; /* クリック可能 */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* 立体感 */
+  transition:
+    transform 0.2s,
+    background-color 0.2s; /* スマートなアニメーション */
+}

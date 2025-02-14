@@ -1,0 +1,42 @@
+/**level表記**/
+.level-block {
+  grid-row: 1;
+  grid-column: 2;
+  display: grid;
+  height: 50px;
+  width: 160px;
+  grid-template-columns: 40 80;
+  grid-template-rows: 40;
+  align-items: center;
+}
+
+/**Lv表記のラベル**/
+.level-block label {
+  grid-row: 1;
+  grid-column: 1;
+  color: #00ff7f; /* 緑色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 16px; /* 適度な文字サイズ */
+}
+
+/**Lv表記数字のセレクトボックス**/
+.level-block input[type="number"] {
+  grid-row: 1;
+  grid-column: 2;
+  width: 80px;
+  appearance: none; /* デフォルトのスタイルを無効化 */
+  border: none; /* 枠線を非表示 */
+  color: #000000; /* 黒色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 16px; /* 適度な文字サイズ */
+  padding: 8px 12px; /* 適度な余白 */
+  border-radius: 10px; /* 角を丸くする */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 立体感を追加 */
+}
+
+.level-block input[type="number"]:focus {
+  outline: none; /* フォーカス時の枠線を非表示 */
+  background-color: #ffec8b; /* フォーカス時に少し明るい黄色 */
+}

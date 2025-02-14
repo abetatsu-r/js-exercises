@@ -1,0 +1,45 @@
+.result-berries-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+/*きのみ個数領域*/
+.result-berries-count-area {
+  margin-top: 10px;
+  height: 35px;
+  display: flex;
+}
+
+/*画像領域*/
+.result-berries-count-area img {
+  height: 35px;
+  width: 35px;
+}
+
+.result-berries-count-area label {
+  height: 35px;
+  font-size: 15px;
+  line-height: 35px;
+  text-align: center;
+  color: #666666;
+  font-weight: 900;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", sans-serif;
+}
+
+/* きのみエナジー */
+.result-berries-energy-area {
+  height: 35px;
+  display: flex;
+}
+
+.result-berries-energy-area label {
+  height: 30px;
+  font-size: 12px;
+  text-align: center;
+  color: #666666;
+  font-weight: 900;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", sans-serif;
+}

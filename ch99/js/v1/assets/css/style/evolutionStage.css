@@ -1,0 +1,34 @@
+/**進化回数表示**/
+.evolution-stage-block {
+  display: grid;
+  grid-row: 2;
+  width: 130px;
+  align-items: center;
+}
+
+/**進化表記のラベル**/
+.evolution-stage-block label {
+  grid-row: 1;
+  grid-column: 1;
+  color: #00ff7f; /* 緑色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 12px; /* 適度な文字サイズ */
+  margin-left: 0px;
+}
+
+/**進化回数入力欄**/
+.evolution-stage-block input[type="number"] {
+  grid-row: 1;
+  grid-column: 2;
+  width: 40px;
+  appearance: none; /* デフォルトのスタイルを無効化 */
+  border-color: #aaaaaa; /* 枠線を非表示 */
+  color: #000000; /* 黒色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 12px; /* 適度な文字サイズ */
+  padding: 5px 5px; /* 適度な余白 */
+  border-radius: 10px; /* 角を丸くする */
+  margin: 0px;
+}

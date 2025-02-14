@@ -1,0 +1,100 @@
+/** subskill関連のスタイル **/
+.subskill-block {
+  display: grid;
+  grid-template-rows: 30px 50px;
+  width: 500px;
+  grid-row: 4;
+  grid-column: 2 / span 3;
+}
+
+#sub-skills-label {
+  grid-row: 1;
+  width: 90px;
+  height: 20px;
+}
+
+.subskill-block #sub-skills-container {
+  display: flex;
+  grid-row: 2;
+  grid-column: 1;
+  align-items: center;
+}
+
+.subskill-block #sub-skills-container button {
+  display: inline-flex; /* 中央揃えに便利な設定 */
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center; /* 縦方向の中央揃え */
+  background-color: #ff6347; /* トマト色（赤系） */
+  color: #ffffff; /* 白い文字 */
+  font-weight: bold; /* 太字 */
+  font-size: 18px; /* 適度な文字サイズ */
+  width: 20px; /* 正円の直径 */
+  height: 20px; /* 正円の直径 */
+  border-radius: 50%; /* 正円 */
+  border: none; /* 枠線を消す */
+  cursor: pointer; /* クリック可能 */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* 立体感 */
+  transition:
+    transform 0.2s,
+    background-color 0.2s; /* スマートなアニメーション */
+}
+
+.subskill-block .sub-skill-select {
+  margin: 10px;
+}
+
+.sub-skill-select {
+  height: 40px; /* 高さ */
+  width: 160px; /* 幅 */
+  padding-top: 6px; /* 内側の余白を調整 */
+  padding-bottom: 6px; /* 内側の余白を調整 */
+  font-size: 12px; /* フォントサイズ */
+  border: 2px solid transparent; /* 初期状態は枠なし */
+  border-radius: 8px; /* 四角を少し丸める */
+  background-color: #f9f9f9; /* 初期の背景色（必要に応じて調整） */
+  text-align: center; /* 初期値も中央揃え */
+  font-weight: normal; /* 初期状態の文字 */
+}
+
+.sub-skill-select.skill-normal {
+  height: 32px;
+  padding-top: 0px; /* 内側の余白を調整 */
+  padding-bottom: 0px; /* 内側の余白を調整 */
+  border: 2px solid white; /* シルバー系の枠 */
+  outline: 2px solid #aeaeae;
+  font-weight: bold; /* 太字 */
+  border-radius: 2px; /* 四角を少し丸める */
+  background: linear-gradient(135deg, white, #f0f0f0); /* シルバー系の背景色 */
+  color: #333; /* 適度に濃い文字色 */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* スマートに見える影 */
+}
+
+.sub-skill-select.skill-silver {
+  height: 32px;
+  padding-top: 0px; /* 内側の余白を調整 */
+  padding-bottom: 0px; /* 内側の余白を調整 */
+  border: 1px solid rgb(137, 209, 255); /* シルバー系の枠 */
+  outline: 2px solid rgb(47, 107, 252);
+  font-weight: bold; /* 太字 */
+  border-radius: 2px; /* 四角を少し丸める */
+  background: linear-gradient(
+    135deg,
+    rgb(226, 249, 255),
+    rgb(204, 235, 253)
+  ); /* シルバー系の背景色 */
+  color: rgb(32, 43, 78); /* 適度に濃い文字色 */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* スマートに見える影 */
+}
+
+.sub-skill-select.skill-gold {
+  height: 32px;
+  padding-top: 0px; /* 内側の余白を調整 */
+  padding-bottom: 0px; /* 内側の余白を調整 */
+  border: 1px solid white; /* シルバー系の枠 */
+  outline: 2px solid rgb(165, 136, 5);
+  font-weight: bold; /* 太字 */
+  border-radius: 2px; /* 四角を少し丸める */
+  background: linear-gradient(90deg, #fdef89, #fdb414); /* シルバー系の背景色 */
+  color: #783813; /* 文字色 */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* スマートに見える影 */
+}

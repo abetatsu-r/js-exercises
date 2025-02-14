@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Sleep Tool</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/style/pokemonImage.css" />
+    <link rel="stylesheet" href="assets/css/style/level.css" />
+    <link rel="stylesheet" href="assets/css/style/evolutionStage.css" />
+    <link rel="stylesheet" href="assets/css/style/name.css" />
+    <link rel="stylesheet" href="assets/css/style/sleepRibbon.css" />
+    <link rel="stylesheet" href="assets/css/style/ingredient.css" />
+    <link rel="stylesheet" href="assets/css/style/subskill.css" />
+    <link rel="stylesheet" href="assets/css/style/design.css" />
+    <link rel="stylesheet" href="assets/css/style/nature.css" />
+
+    <link rel="stylesheet" href="assets/css/envSettings/design.css" />
+    <link rel="stylesheet" href="assets/css/envSettings/offCanvasStyle.css" />
+    <link rel="stylesheet" href="assets/css/envSettings/toggleButton.css" />
+    <link rel="stylesheet" href="assets/css/envSettings/registerForm.css" />
+
+    <link rel="stylesheet" href="assets/css/resultDisplay/styles.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/pokemonErea.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/BerriesArea.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/ingredientArea.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/skillArea.css" />
+    <link rel="stylesheet" href="assets/css/resultDisplay/optionArea.css" />
+  </head>
+  <body>
+    <h1>Pokemon Sleep Checker</h1>
+    <div class="container">
+      <form id="pokemon-form">
+        <div class="form-group image-block">
+          <img id="pokemon-image" style="display: none" />
+          <div>
+            <div id="pokemon-type-display">
+              <label class="type-label" style="display: none">タイプ</label
+              ><img class="type-image" style="display: none" />
+            </div>
+            <div id="pokemon-specialty-display">
+              <label class="specialty-label" style="display: none">とくい</label
+              ><label class="specialty-value"></label>
+            </div>
+          </div>
+        </div>
+        <!-- Level Input -->
+        <div class="form-group level-block">
+          <label class="level-input-label" for="level-input">Lv.</label>
+          <input
+            type="number"
+            id="level-input"
+            name="level"
+            min="1"
+            max="60"
+            value="50"
+          />
+        </div>
+        <!-- Pokemon Selection -->
+        <div class="form-group pokemon-block">
+          <label for="pokemon-select">〇</label>
+          <select id="pokemon-select" name="pokemon">
+            <option value="" disabled selected>ポケモン</option>
+          </select>
+        </div>
+
+        <!-- Evolution Number -->
+        <div
+          class="form-group evolution-stage-block"
+          id="evolution-stage-display"
+        >
+          <label for="evolution-stage">進化回数</label>
+          <input
+            type="number"
+            id="evolution-stage"
+            name="evolution-stage"
+            min="0"
+            max="2"
+          />
+        </div>
+
+        <!-- sleep ribbon-->
+        <div class="form-group sleep-ribbon-block">
+          <label for="sleep-ribbon">リボン</label>
+          <div id="sleep-ribbon" name="sleep-ribbon">
+            <input
+              type="radio"
+              id="none"
+              name="sleep-ribbon"
+              value="0"
+              checked
+            />
+            <label for="none" class="radio-image">なし</label>
+            <input
+              type="radio"
+              id="ribbon-200-hours"
+              name="sleep-ribbon"
+              value="200"
+            />
+            <label
+              for="ribbon-200-hours"
+              class="radio-image sleep-ribbon"
+            ></label>
+            <input
+              type="radio"
+              id="ribbon-500-hours"
+              name="sleep-ribbon"
+              value="500"
+            />
+            <label
+              for="ribbon-500-hours"
+              class="radio-image sleep-ribbon"
+            ></label>
+            <input
+              type="radio"
+              id="ribbon-1000-hours"
+              name="sleep-ribbon"
+              value="1000"
+            />
+            <label
+              for="ribbon-1000-hours"
+              class="radio-image sleep-ribbon"
+            ></label>
+            <input
+              type="radio"
+              id="ribbon-2000-hours"
+              name="sleep-ribbon"
+              value="2000"
+            />
+            <label
+              for="ribbon-2000-hours"
+              class="radio-image sleep-ribbon"
+            ></label>
+          </div>
+        </div>
+        <!-- Ingredients Selection -->
+        <div class="form-group ingredient-block" id="ingredient">
+          <label id="ingredient-label" class="category-label">食材</label>
+          <div>
+            <label for="ingredient-1"></label>
+            <div id="ingredient-1" name="ingredient-1"></div>
+          </div>
+          <div>
+            <label for="ingredient-2">/</label>
+            <div id="ingredient-2" name="ingredient-2"></div>
+          </div>
+          <div>
+            <label for="ingredient-60">/</label>
+            <div id="ingredient-3" name="ingredient-3"></div>
+          </div>
+        </div>
+
+        <!-- Sub Skills -->
+        <div class="form-group subskill-block">
+          <label id="sub-skills-label" class="category-label">サブスキル</label>
+          <div id="sub-skills-container">
+            <button type="button" id="add-sub-skill-btn">+</button>
+          </div>
+        </div>
+
+        <!-- Nature Selection -->
+        <div class="form-group nature-block">
+          <label for="nature-select" class="category-label">せいかく</label>
+          <select id="nature-select" name="nature">
+            <option value="" disabled selected>-</option>
+          </select>
+          <span id="nature-effected-param-display"></span>
+        </div>
+
+        <!-- Helping Bonus Number-->
+        <div
+          class="form-group helping-bonus-count-block"
+          id="helping-bonus-count-display"
+        >
+          <label for="helping-bonus-count">お手伝いボーナスの数</label>
+          <input
+            type="number"
+            id="helping-bonus-count"
+            name="helping-bonus-count"
+            value="0"
+            min="0"
+            max="4"
+          />
+        </div>
+        <!-- Calculate Button -->
+        <div class="form-group">
+          <button type="submit" id="calculate-btn">Calc.</button>
+        </div>
+      </form>
+    </div>
+
+    <!--環境設定欄-->
+    <div id="envSettings" class="off-canvas">
+      <div class="off-canvas-content">
+        <h2>プレイスタイル設定</h2>
+        <button id="env-toggle-button">設定</button>
+        <form id="env-form">
+          <!--時間入力欄-->
+          <div>
+            <label class="env-item-title">稼働時間</label>
+            <div>
+              <label for="env-input-start-time" class="env-item-label"
+                >開始</label
+              >
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-input-start-time"
+                name="env-input-start-time"
+                value="08:00"
+              />
+              <label for="env-input-end-time" class="env-item-label"
+                >終了</label
+              >
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-input-end-time"
+                name="env-input-end-time"
+                value="08:00"
+              />
+            </div>
+          </div>
+          <!--睡眠時間入力欄-->
+          <div>
+            <label class="env-item-title">睡眠時間</label>
+            <div>
+              <label for="env-input-sleep-in-time" class="env-item-label"
+                >開始</label
+              >
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-input-sleep-in-time"
+                name="env-input-sleep-in-time"
+                value="22:00"
+              />
+              <label for="env-input-awake-time" class="env-item-label"
+                >終了</label
+              >
+              <input
+                type="time"
+                class="env-item-time-input"
+                id="env-input-awake-time"
+                name="env-input-awake-time"
+                value="08:00"
+              />
+            </div>
+          </div>
+          <!--タップタイミング入力欄-->
+          <div>
+            <div>
+              <label class="env-item-title">ログインタイミング </label>
+              <div class="env-settings-tap-timing">
+                <input
+                  type="time"
+                  class="env-item-time-input"
+                  id="env-tap-timing-1"
+                  name="env-tap-timing-1"
+                  value="08:00"
+                />
+                <label>
+                  <input type="radio" name="count-efe-1" value="0" checked /> 0
+                </label>
+                <label>
+                  <input type="radio" name="count-efe-1" value="1" /> 1
+                </label>
+                <label>
+                  <input type="radio" name="count-efe-1" value="2" /> 2
+                </label>
+              </div>
+              <button type="button" id="add-tap-timing-btn">+</button>
+            </div>
+          </div>
+          <!--いいキャンプチケット設定欄-->
+          <div>
+            <label class="env-item-title">いいキャンプチケット</label>
+            <label class="toggle-switch">
+              <input id="goodCampToggle" type="checkbox" />
+              <span for="goodCampToggle" class="slider"></span>
+            </label>
+          </div>
+          <!--お手伝いボーナス設定欄-->
+          <div>
+            <label class="env-item-title">お手伝いボーナス</label>
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  name="count-team-helping-bonus"
+                  value="0"
+                  checked
+                />
+                0
+              </label>
+              <label>
+                <input type="radio" name="count-team-helping-bonus" value="1" />
+                1
+              </label>
+              <label>
+                <input type="radio" name="count-team-helping-bonus" value="2" />
+                2
+              </label>
+              <label>
+                <input type="radio" name="count-team-helping-bonus" value="3" />
+                3
+              </label>
+              <label>
+                <input type="radio" name="count-team-helping-bonus" value="4" />
+                4
+              </label>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="env-before-register"
+            id="env-show-register-form-btn"
+          >
+            登録
+          </button>
+          <button
+            type="button"
+            class="env-register-mode"
+            style="display: none"
+            id="env-cancel-register"
+          >
+            ×
+          </button>
+          <input
+            type="text"
+            class="env-register-mode"
+            id="env-register-name"
+            style="display: none"
+            placeholder="プレイスタイル名"
+          />
+
+          <button
+            type="submit"
+            class="env-register-mode"
+            style="display: none"
+            id="env-register-btn"
+          >
+            OK
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--結果出力欄-->
+    <div id="result-top-container"></div>
+    <div class="clock"></div>
+    <script type="text/javascript">
+      function displayTime() {
+        const now = new Date();
+        const hour = now.getHours();
+        const minute = now.getMinutes();
+        const second = now.getSeconds();
+
+        const currentTime = `${hour}:${minute}:${second}`;
+        document.querySelector(".clock").textContent = currentTime;
+      }
+
+      displayTime();
+      setInterval(displayTime, 1000);
+    </script>
+    <script type="module" src="src/scripts/main.js"></script>
+    <script type="module" src="src/scripts/offCanvasUtil.js"></script>
+  </body>
+</html>

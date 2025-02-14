@@ -1,0 +1,43 @@
+.ingredient-block {
+  display: grid;
+  grid-row: 3;
+  grid-column: 2 / span 3;
+  width: 500px;
+  height: 50px;
+  vertical-align: middle;
+}
+
+.ingredient-block * {
+  grid-row: 1;
+}
+
+.ingredient-block div {
+  display: grid;
+  place-items: center;
+}
+
+.ingredient-block div * {
+  grid-row: 1;
+  height: 30px;
+}
+
+.ingredient-block div label {
+  margin-top: 10px;
+}
+
+#ingredient-label {
+  align-items: center;
+  height: 20px;
+  margin-top: 10px;
+  width: 90px;
+}
+
+label img {
+  cursor: pointer;
+  opacity: 0.2;
+  transition: opacity 0.3s; /* スムーズな変化 */
+}
+
+input[type="radio"]:checked + label img {
+  opacity: 1;
+}

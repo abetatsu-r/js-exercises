@@ -1,0 +1,82 @@
+/**お休みリボン関連のスタイル */
+.sleep-ribbon-block {
+  grid-row: 2;
+  columns: 2;
+  align-items: center;
+}
+
+.sleep-ribbon-block * {
+  grid-row: 1;
+}
+
+.sleep-ribbon-block > label {
+  grid-row: 1;
+  grid-column: 1;
+  color: #00ff7f; /* 緑色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 12px; /* 適度な文字サイズ */
+  margin-left: 0px;
+}
+
+.sleep-ribbon-block div label {
+  grid-row: 1;
+  grid-column: 1;
+  color: #bbbbbb; /* 緑色の文字 */
+  font-weight: 900; /* 太字 */
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif; /* ポップなフォント */
+  font-size: 12px; /* 適度な文字サイズ */
+  margin-left: 0px;
+}
+
+.sleep-ribbon-block input[type="radio"] {
+  display: none;
+}
+
+.radio-image {
+  width: 50px;
+  height: 50px;
+  margin: 1px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: 15px solid transparent;
+}
+
+#ribbon-200-hours + .radio-image {
+  background-image: url("../../images/sleepRibbon/200-hours.png");
+  opacity: 0.2;
+}
+
+#ribbon-200-hours:checked + .radio-image {
+  background-image: url("../../images/sleepRibbon/200-hours.png");
+  opacity: 1;
+}
+#ribbon-500-hours + .radio-image {
+  background-image: url("../../images/sleepRibbon/500-hours.png");
+  opacity: 0.2;
+}
+
+#ribbon-500-hours:checked + .radio-image {
+  background-image: url("../../images/sleepRibbon/500-hours.png");
+  opacity: 1;
+}
+#ribbon-1000-hours + .radio-image {
+  background-image: url("../../images/sleepRibbon/1000-hours.png");
+  opacity: 0.2;
+}
+
+#ribbon-1000-hours:checked + .radio-image {
+  background-image: url("../../images/sleepRibbon/1000-hours.png");
+  opacity: 1;
+}
+#ribbon-2000-hours + .radio-image {
+  background-image: url("../../images/sleepRibbon/2000-hours.png");
+  opacity: 0.2;
+}
+
+#ribbon-2000-hours:checked + .radio-image {
+  background-image: url("../../images/sleepRibbon/2000-hours.png");
+  opacity: 1;
+}

@@ -1,0 +1,39 @@
+.result-ingredients-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-row: 1;
+  grid-column: 4;
+}
+
+/**食材1種類ごとの領域**/
+.result-ingredient-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 75px;
+  margin: 10px;
+}
+
+/**食材個数表示位置**/
+.result-ingredient-count-area {
+  display: flex;
+  width: inherit;
+  height: 40px;
+}
+
+.result-ingredient-count-area img {
+  width: 40px;
+  height: 40px;
+}
+
+.result-ingredient-count-area label {
+  height: 40px;
+  font-size: 15px;
+  line-height: 40px;
+  text-align: center;
+  color: #666666;
+  font-weight: 900;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", sans-serif;
+}

@@ -1,0 +1,19 @@
+/**スキル領域*/
+.result-skill-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-row: 1;
+  grid-column: 3;
+  gap: 5px;
+}
+
+.result-skill-area label {
+  height: 75px;
+  font-size: 16px;
+  line-height: 75px;
+  text-align: center;
+  color: #666666;
+  font-weight: 900;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", sans-serif;
+}
